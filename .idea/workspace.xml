@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="" />
+    <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/tsconfig.spec.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,19 +46,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Lluis\\WebstormProjects\\PanaderiaOnline\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -52,6 +77,12 @@
       <updated>1742377135485</updated>
       <workItem from="1742377136553" duration="612000" />
       <workItem from="1742379024203" duration="4000" />
+      <workItem from="1742379178547" duration="309000" />
+      <workItem from="1742387059143" duration="2000" />
+      <workItem from="1743267969752" duration="1487000" />
+      <workItem from="1743269491730" duration="139000" />
+      <workItem from="1743321757595" duration="273000" />
+      <workItem from="1743328884116" duration="1863000" />
     </task>
     <servers />
   </component>
