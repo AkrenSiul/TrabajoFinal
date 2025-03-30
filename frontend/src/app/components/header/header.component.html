@@ -5,20 +5,50 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+        <li>
+          <a routerLink="/" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Tienda
+          </a>
+        </li>
+        <li>
+          <a routerLink="/quienes-somos" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Quienes somos
+          </a>
+        </li>
+        <li>
+          <a routerLink="/nuestras-tiendas" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Nuestras tiendas
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contact" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Contacto
+          </a>
+        </li>
+        <li>
+          <a routerLink="/trabaja-nosotros" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Trabaja con nosotros
+          </a>
+        </li>
       </ul>
+    </div>
+    <div class="text-end">
 
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-      </form>
-
-      <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Login</button>
-        <button type="button" class="btn btn-warning">Cerrar Sesión</button>
+    </div>
+    <div class="text-end">
+      <div class="row">
+        <div class="col-6">
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+          </form>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <!-- if(sesion-iniciada){} -->
+          @if(login){
+          <button type="button" class="btn btn-warning">Cerrar Sesión</button>
+          }
+        </div>
       </div>
     </div>
   </div>
