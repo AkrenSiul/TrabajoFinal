@@ -1,5 +1,64 @@
-<div class="card">
-  <div class="card-header">
-    <p>Inicio works!</p>
+<section>
+  <div class="d-grid align-content-lg-center justify-content-center pt-4">
+    <h1 class="pb-3">¡DESCUBRE NUESTRA PANADER ONLINE!</h1>
+    <h4 class="text-center pb-4">Alguno de nuestros productos</h4>
+
+    <div class="row">
+    <ngb-carousel
+    [interval]=3500
+    [showNavigationIndicators]=true
+    style="background-color: grey"
+    [wrap]="true">
+      @for(agent of agents; track $index) {
+      <ng-template ngbSlide class="w-25">
+        <div class="d-flex justify-content-center">
+          <img width="300px" height="300px" src="{{agent.fullPortrait}}" alt="Random first slide" />
+        </div>
+        <div class="carousel-caption text-dark">
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+      </ng-template>
+      }
+    </ngb-carousel>
+    </div>
   </div>
-</div>
+</section>
+<section class="mt-4 mx-auto my-auto max-width">
+
+  <br>
+  <div class="row g-4">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="search" (keydown.enter)="getAgents()">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-3"></div>
+    @for(agent of agents; track $index){
+      <div class="col-2 p-1 text-center justify-content-evenly">
+        <div class="card h-100">
+          <div class="d-flex justify-content-center">
+            <img class="img-fluid w-50 " src="{{agent.fullPortrait}}" alt="no-img">
+          </div>
+          <div class="card-header border-0">
+            <div class="card-title m-2">
+              <h3 >{{agent.displayName}}</h3>
+            </div>
+          </div>
+          <div class="card-body m-2">
+            <p>fdsdgfsdfsd</p>
+          </div>
+          <div class="card-footer border-0">
+            <div class="btn btn-addCart m-1 ">
+              <span class="text-dark">Añadir al carrito</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

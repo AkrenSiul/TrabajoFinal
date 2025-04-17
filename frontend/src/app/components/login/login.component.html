@@ -1,0 +1,29 @@
+<div class="vh-100 modal-dialog-centered d-flex justify-content-center">
+<div class="card w-auto h-auto justify-content-center modal-dialog-centered p-4 bg-secondary">
+  <div class="vh-50">
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="form-floating mb-3">
+        <div>
+          <label for="usuario" class="form-label">Usuario: </label>
+          <input formControlName="usuario"
+                 type="text" required class="form-control"
+                 id="usuario"
+                 placeholder="Usuario...">
+        </div>
+        <div>
+          <label class="form-label" for="contrasenya">Contraseña</label>
+          <input formControlName="contrasenya"
+                 type="password" required class="form-control"
+                 id="contrasenya"
+                 placeholder="password">
+        </div>
+      </div>
+    </form>
+  <input [(ngModel)]="usuario" placeholder="Usuario">
+  <input [(ngModel)]="contrasenya" type="password" placeholder="Contraseña">
+  <button (click)="login(usuario, contrasenya)">Login</button>
+  <button (click)="registrar(usuario, contrasenya)">Registrar</button>
+  <p>{{mensaje}}</p>
+  </div>
+</div>
+</div>

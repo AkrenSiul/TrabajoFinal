@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Arial, Helvetica, Georgia, sans-serif;
+}
+
+.img-logo {
+  display: block;
+  width: 80%;
+  height: 600px;
+  object-fit: fill;
+  margin: auto;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.card {
+  border: none;
+}
+.btn-addCart {
+  background: rgba(174, 174, 174, 0.75);
+  border-radius: 5%;
+  padding: 10px;
+  transition: none;
+  transition-duration: 28s;
+  transform: scale(100%);
+}
+.btn-addCart:active {
+  background: rgba(174, 174, 174, 0.75);
+  border-radius: 5%;
+  padding: 10px;
+  transition-duration: 2.8s;
+  transform: scale(100%);
+}
+.btn-addCart:hover {
+  transform: scale(105%);
+  transition-duration: 2.8s;
+}
+.max-width {
+  max-width: 80%;
+}

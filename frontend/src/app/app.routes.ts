@@ -4,6 +4,7 @@ import {ContactoComponent} from './components/contacto/contacto.component';
 import {NuestrasTiendasComponent} from './components/nuestras-tiendas/nuestras-tiendas.component';
 import {QuienesSomosComponent} from './components/quienes-somos/quienes-somos.component';
 import {TrabajaConNosotrosComponent} from './components/trabaja-con-nosotros/trabaja-con-nosotros.component';
+import {LoginComponent} from './components/login/login.component';
 
 export const routes: Routes = [
   {
@@ -20,7 +21,7 @@ export const routes: Routes = [
     component: ContactoComponent
   },
   {
-    path: 'nuestras-tiendas',
+    path: 'nuestros-obradores',
     component: NuestrasTiendasComponent
   },
   {
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'trabaja-nosotros',
     component: TrabajaConNosotrosComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];

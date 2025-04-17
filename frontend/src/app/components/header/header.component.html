@@ -1,55 +1,44 @@
 <nav class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+  <div class="container-fluid d-flex justify-content-between align-items-center w-75">
+    <ul class="nav">
+      <li class="nav-item">
+        <a routerLink="/inicio" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Tienda Pan-tástico
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/quienes-somos" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Quienes somos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/nuestros-obradores" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Nuestros obradores
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/contact" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Contacto
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/trabaja-nosotros" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Trabaja con nosotros
+        </a>
+      </li>
+    </ul>
+    <div class="d-flex align-items-center">
+      <a routerLink="/trabaja-nosotros" class="nav-link px-3 text-white text-center" routerLinkActive="active-link">
+        <fa-icon [icon]="faCart"></fa-icon>
       </a>
+      @if(!login){
+      <div type="button" class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active-link">Login</div>
+      }
+      <!-- Mostrar botón de cerrar sesión si el usuario está logueado -->
+      @if (login) {
+        <div type="button" class="btn btn-warning" (click)="login=false">Cerrar Sesión</div>
+      }
+    </div>
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li>
-          <a routerLink="/" class="nav-link px-2 text-white" routerLinkActive="active-link">
-            Tienda
-          </a>
-        </li>
-        <li>
-          <a routerLink="/quienes-somos" class="nav-link px-2 text-white" routerLinkActive="active-link">
-            Quienes somos
-          </a>
-        </li>
-        <li>
-          <a routerLink="/nuestras-tiendas" class="nav-link px-2 text-white" routerLinkActive="active-link">
-            Nuestras tiendas
-          </a>
-        </li>
-        <li>
-          <a routerLink="/contact" class="nav-link px-2 text-white" routerLinkActive="active-link">
-            Contacto
-          </a>
-        </li>
-        <li>
-          <a routerLink="/trabaja-nosotros" class="nav-link px-2 text-white" routerLinkActive="active-link">
-            Trabaja con nosotros
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="text-end">
-
-    </div>
-    <div class="text-end">
-      <div class="row">
-        <div class="col-6">
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-          </form>
-        </div>
-        <div class="col-6">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <!-- if(sesion-iniciada){} -->
-          @if(login){
-          <button type="button" class="btn btn-warning">Cerrar Sesión</button>
-          }
-        </div>
-      </div>
-    </div>
   </div>
 </nav>

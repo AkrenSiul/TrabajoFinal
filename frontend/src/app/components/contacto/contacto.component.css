@@ -1,0 +1,40 @@
+* {
+  line-height: 1.6;
+}
+h2 {
+  font-size: 28px;
+}
+p {
+  font-size: 15px;
+}
+input, textarea {
+  border: 1px solid black;
+  resize: none;
+  transition: transform 0.6s ease;
+}
+input:focus, textarea:focus {
+  border: 1px solid black;
+  resize: none;
+  box-shadow: none;
+  transition: transform 0.8s ease;
+  transform: scale(1.02);
+}
+
+.container {
+  width: 100% !important;
+  height: 100vh;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.contenidos {
+  margin-top: 2rem;
+}
+p.left {
+  justify-content: left;
+}
+.border-bottom-title {
+  border-bottom: 2px solid rgb(0, 0, 255);
+  width: 140px;
+}

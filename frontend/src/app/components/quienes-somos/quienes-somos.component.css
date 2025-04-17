@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, Arial, Helvetica, Georgia, sans-serif;
+}
+
+.container-top {
+  display: flex;
+  justify-content: center;
+}

@@ -1,1 +1,53 @@
-<p>contacto works!</p>
+<div class="container">
+  <div class="contenidos ">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <h2 class="pb-3"><b>DATOS DE CONTACTO</b></h2>
+        <hr class="border-bottom-title">
+        <p class="left pt-3"><b>Desde Horno Pan-tástico agradecemos tu interés en nuestros productos.</b>
+          <br>
+          Si deseas obtener más información sobre nuestros productos, o sobre algún pedido
+          no dudes en ponerte en contacto con nosotros. Estaremos encantados de ayudarte.</p>
+        <h4 class="pt-3 text-dark-emphasis">
+          <b>Horno Pan-tástico</b>
+        </h4>
+        <p class="pt-3 m-1">
+          Avenida del Cid, 24, Valencia
+        </p>
+        <p class="m-1">
+          Teléfono: +34 666999888
+        </p>
+        <p class="m-1">
+          E-mail: info.pan-tastico&#64;hotmail.com
+        </p>
+      </div>
+      <div class="col-6">
+        <h2 class="pb-3"><b>CONTACTA CON NOSOTROS</b></h2>
+        <hr class="border-bottom-title">
+        <form [formGroup]="formContact" class="d-inline-block w-75">
+          <div class="form-group">
+            <label class="pb-3 pt-3" for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" >
+          </div>
+          <div class="form-group">
+            <label class="pb-2 pt-2" for="email">Email:</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email">
+          </div>
+          <div class="form-group">
+            <label class="pb-2 pt-2" for="telefono">Teléfono:</label>
+            <input type="text" class="form-control" id="telefono" aria-describedby="telefono">
+          </div>
+          <div class="form-group">
+            <label class="pb-2 pt-2" for="consulta">Consulta</label>
+            <textarea rows="10" class="form-control" id="consulta" aria-describedby="consulta"></textarea>
+          </div>
+          <div class="d-flex justify-content-end pt-2">
+            <button class="btn btn-primary" type="submit">Enviar Consulta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+</div>
