@@ -29,6 +29,7 @@ export class InicioComponent {
   constructor() {
     this.getProducts();
     this.getAgents();
+    this.getTest();
   }
 
 
@@ -58,6 +59,19 @@ export class InicioComponent {
     );
   }
 
+
+  getTest() {
+    this.productService.getTest().subscribe(
+      {
+        next: value => {
+          console.log(value);
+        },
+        error: err => {
+          console.log(err.message);
+        }
+      }
+    )
+  }
 
 
 }

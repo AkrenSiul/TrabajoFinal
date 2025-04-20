@@ -21,4 +21,8 @@ export class TestServiceService {
   getAgents(): Observable<AgentInterfaceTest> {
     return this.http.get<AgentInterfaceTest>(this.urlAgents);
   }
+
+  getTest(): Observable<any> {
+    return this.http.get<any>('http://localhost:8000/api/test')
+  }
 }

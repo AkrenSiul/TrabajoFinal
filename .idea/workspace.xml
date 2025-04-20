@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/img-pan-tastico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/pan-header.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/assets/trabaja-con-nosotros.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/nuestras-tiendas/nuestras-tiendas.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/nuestras-tiendas/nuestras-tiendas.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/nuestras-tiendas/nuestras-tiendas.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/nuestras-tiendas/nuestras-tiendas.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/nuestras-tiendas/nuestras-tiendas.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/nuestras-tiendas/nuestras-tiendas.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/quienes-somos/quienes-somos.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/quienes-somos/quienes-somos.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/quienes-somos/quienes-somos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/quienes-somos/quienes-somos.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +106,9 @@
       <workItem from="1744732948017" duration="736000" />
       <workItem from="1744734129058" duration="3017000" />
       <workItem from="1744818691429" duration="1159000" />
+      <workItem from="1744879457963" duration="2027000" />
+      <workItem from="1745056378797" duration="2032000" />
+      <workItem from="1745141237007" duration="2238000" />
     </task>
     <servers />
   </component>
