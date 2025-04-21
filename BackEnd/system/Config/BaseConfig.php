@@ -24,7 +24,7 @@ use RuntimeException;
  * automatically populate the child class' properties with values
  * from the environment.
  *
- * These can be set within the .env file.
+ * These can be set within the ..env file.
  *
  * @phpstan-consistent-constructor
  * @see \CodeIgniter\Config\BaseConfigTest

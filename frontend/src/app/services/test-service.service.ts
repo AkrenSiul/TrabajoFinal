@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {FakeProducstInterface} from '../common/fake-producst-interface';
 import {AgentInterfaceTest} from '../common/agent-interface-test';
@@ -27,8 +27,11 @@ export class TestServiceService {
     return this.http.get<any>('http://localhost:8000/api/test')
   }
 
-  postLogin(usuario: string, contrasenya: string): Observable<any> {
-    return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {withCredentials: true});
 
+  postLogin(usuario: string, contrasenya: string): Observable<any> {
+    const   headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {headers});
   }
 }

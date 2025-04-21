@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: panaderiaAccesoDB
+      MARIADB_USER: adminPanaderia
+      MARIADB_PASSWORD: panaderiaUsuario
+      MARIADB_DATABASE: panaderia
+    ports:
+      - 3306:3306
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - solvam
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    depends_on:
+      - db
+    networks:
+      - solvam
+
+  app:
+    build: .
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - solvam
+
+volumes:
+  mariadb_data:
+
+networks:
+  solvam:
