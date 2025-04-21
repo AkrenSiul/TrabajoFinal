@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +34,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/add-store&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Lluis/WebstormProjects/PanaderiaOnline/frontend/public/assets&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -109,6 +108,7 @@
       <workItem from="1744879457963" duration="2027000" />
       <workItem from="1745056378797" duration="2032000" />
       <workItem from="1745141237007" duration="2238000" />
+      <workItem from="1745227428093" duration="2888000" />
     </task>
     <servers />
   </component>

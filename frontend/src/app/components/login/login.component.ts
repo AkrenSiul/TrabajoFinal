@@ -1,5 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TestServiceService} from '../../services/test-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,8 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private readonly testService: TestServiceService = inject(TestServiceService);
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
-  private loginUsuarios = [
-    {
-      usuarios: "luis",
-      contrasenya: "1234"
-    }
-  ]
   formLogin: FormGroup = this.formBuilder.group(
     {
       usuario: [''],
@@ -38,39 +34,23 @@ export class LoginComponent {
   }
 
   onSubmit(){
-    const usuario = this.formLogin.value.usuario;
-    const contrasenya = this.formLogin.value.contrasenya;
+    if(this.formLogin.valid) {
+      const usuario = this.formLogin.value.usuario;
+      const contrasenya = this.formLogin.value.contrasenya;
 
-    this.login(usuario, contrasenya);
-    return this.mensaje = 'ngOnSubmit Activado';
-  }
-
-  login(usuario: string, contrasenya: string): boolean {
-    const user = this.loginUsuarios.find((u) => u.usuarios === usuario && u.contrasenya === contrasenya);
-    if(user) {
-      this.mensaje = 'Login correcto, usuario conectado';
-      setTimeout(() => {
-        this.mensaje = '';
-      }, 2000);
-    } else {
-      this.mensaje = 'Usuario o contraseña incorrectos';
+      this.testService.postLogin(usuario, contrasenya).subscribe(
+        {
+          next: value => {
+            this.mensaje = 'Bienvenido ' + value.usuario.usuario;
+            console.log('Usuario conectado');
+          },
+          error: err => {
+            this.mensaje = 'Error al iniciar sesión';
+            console.log('Login error', err.message);
+          }
+        }
+      )
     }
-    return !!user;
-  }
-
-  registrar(usuario: string, contrasenya: string): boolean {
-    const existe = this.loginUsuarios.find((u) => u.usuarios === usuario);
-    if (existe) {
-      this.mensaje = 'Este usuario ya existe';
-      return false;
-    }
-    this.loginUsuarios.push({ usuarios: usuario, contrasenya });
-    this.mensaje = 'Usuario registrado correctamente';
-    return true;
-  }
-
-  getUsuarios(): any[] {
-    return this.loginUsuarios;
   }
 
 }

@@ -11,6 +11,7 @@ export class TestServiceService {
   private readonly http: HttpClient = inject(HttpClient);
   urlFakeProduct = 'https://fakestoreapi.com/products';
   urlAgents = 'https://valorant-api.com/v1/agents';
+  private API_URL = 'http://localhost:8080/api/'
 
   constructor() { }
 
@@ -24,5 +25,10 @@ export class TestServiceService {
 
   getTest(): Observable<any> {
     return this.http.get<any>('http://localhost:8000/api/test')
+  }
+
+  postLogin(usuario: string, contrasenya: string): Observable<any> {
+    return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {withCredentials: true});
+
   }
 }
