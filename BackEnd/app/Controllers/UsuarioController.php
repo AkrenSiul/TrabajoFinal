@@ -16,21 +16,39 @@ class UsuarioController extends ResourceController
     }
     public function login()
     {
+        // Obtenemos los datos enviados en formato JSON
         $data = $this->request->getJSON(true);
-        $user = $this->model->getUserByUsuario($data['usuario']);
 
-        if(!$user || !password_verify($data['contrasenya'], $user['contrasenya'])) {
-            return $this->failUnauthorized('Credenciales incorrectas');
+        // Primero, verificamos que se haya enviado el 'usuario' y 'contrasenya'
+        if (!$data || !isset($data['usuario'], $data['contrasenya'])) {
+            return $this->failValidationErrors('Faltan datos');
         }
 
+        // Ahora, buscamos el usuario en la base de datos
+        $usuarioModel = new UsuarioModel(); // Asegúrate de tener esta instancia del modelo
+        $user = $usuarioModel->getUserByUsuario($data['usuario']); // Usamos el 'usuario' del JSON
+
+        // Verificamos si el usuario existe
+        if (!$user) {
+            return $this->failNotFound('Usuario no encontrado');
+        }
+
+
+        if ($user['contrasenya'] !== $data['contrasenya']) {
+            return $this->failUnauthorized('Contraseña incorrecta');
+        }
+
+
         $this->session->set('usuario', [
-            'id' => $user['id'],
-            'usuario' => $user['usuario'],
-            'rol' => $user['rol']
+            'id' => $user['id'],          // Usamos el id del usuario obtenido de la base de datos
+            'usuario' => $user['usuario'], // El usuario de la base de datos
+            'rol' => $user['rol']         // El rol del usuario de la base de datos
         ]);
 
-        return $this->respond(['mensaje' => 'Bienvenido ', 'usuario' => $this->session->get('usuario')]);
+        // Respondemos con el mensaje de bienvenida
+        return $this->respond([$this->session->get('usuario')]);
     }
+
 
     public function registro()
     {

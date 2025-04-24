@@ -9,7 +9,7 @@ class UsuarioModel extends Model
 
     protected $allowedFields = ['usuario', 'email', 'contrasenya', 'rol'];
 
-    public function getUserByUsuario(string $usuario): object|array|null
+    public function getUserByUsuario($usuario)
     {
         return $this->where('usuario', $usuario)->first();
     }

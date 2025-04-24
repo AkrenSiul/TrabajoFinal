@@ -18,12 +18,26 @@ $routes->group('', ['filter' => 'cors'], static function (RouteCollection $route
         return response()->setJSON(['status' => 'ok', 'message' => 'CORS funcionando 🚀']);
     });
     /* USUARIOS */
-    $routes->post('login', 'UsuarioController::login');
-    $routes->post('registro', 'UsuarioController::registro');
-    $routes->get('logout', 'UsuarioController::logout');
-    $routes->get('usuario', 'UsuarioController::usuario');
-    $routes->put('usuario/rol/(:num)', 'UsuarioController::cambiarRol/$1');
+        // Definir la ruta OPTIONS para login
+        $routes->options('login', static function() {
+            return response()
+                ->setStatusCode(204)
+                ->setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, DELETE')
+                ->setHeader('Access-Control-Allow-Headers', 'Content-Type')
+                ->setHeader('Access-Control-Allow-Origin', '*');
+        });
+
+        // Definir las rutas POST, GET para login
+        $routes->post('login', 'UsuarioController::login');
+        $routes->get('login', 'UsuarioController::login');
+
+        // Otras rutas de usuarios
+        $routes->post('registro', 'UsuarioController::registro');
+        $routes->get('logout', 'UsuarioController::logout');
+        $routes->get('usuario', 'UsuarioController::usuario');
+        $routes->put('usuario/rol/(:num)', 'UsuarioController::cambiarRol/$1');
     });
+
 
     // Recurso RESTful (controlador Product)
     $routes->resource('product');

@@ -26,9 +26,9 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'db',
-        'username'     => 'root',
-        'password'     => 'panaderiaAccesoDB',
+        'hostname'     => 'db:3306',
+        'username'     => 'adminPanaderia',
+        'password'     => 'panaderiaUsuario',
         'database'     => 'panaderia',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
