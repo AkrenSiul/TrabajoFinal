@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/proxy.conf.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +111,13 @@
       <workItem from="1745056378797" duration="2032000" />
       <workItem from="1745141237007" duration="2238000" />
       <workItem from="1745227428093" duration="2888000" />
+      <workItem from="1745257360808" duration="1327000" />
+      <workItem from="1745298684122" duration="391000" />
+      <workItem from="1745337195124" duration="1223000" />
+      <workItem from="1745340937518" duration="1733000" />
+      <workItem from="1745428519993" duration="1242000" />
+      <workItem from="1745510997189" duration="415000" />
+      <workItem from="1745513255292" duration="2421000" />
     </task>
     <servers />
   </component>

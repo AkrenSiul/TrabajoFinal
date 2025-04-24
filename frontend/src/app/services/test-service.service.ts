@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {FakeProducstInterface} from '../common/fake-producst-interface';
 import {AgentInterfaceTest} from '../common/agent-interface-test';
@@ -11,7 +11,7 @@ export class TestServiceService {
   private readonly http: HttpClient = inject(HttpClient);
   urlFakeProduct = 'https://fakestoreapi.com/products';
   urlAgents = 'https://valorant-api.com/v1/agents';
-  private API_URL = 'http://localhost:8080/api/'
+  private API_URL = 'http://localhost:8000/api/'
 
   constructor() { }
 
@@ -28,7 +28,12 @@ export class TestServiceService {
   }
 
   postLogin(usuario: string, contrasenya: string): Observable<any> {
-    return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {withCredentials: true});
+    const headers = new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+      }
+    )
+    return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {headers});
 
   }
 }
