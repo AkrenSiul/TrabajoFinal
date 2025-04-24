@@ -22,6 +22,11 @@
         </div>
       </div>
     </form>
+  <input [(ngModel)]="usuario" placeholder="Usuario">
+  <input [(ngModel)]="contrasenya" type="password" placeholder="Contraseña">
+  <button (click)="login(usuario, contrasenya)">Login</button>
+  <button (click)="registrar(usuario, contrasenya)">Registrar</button>
+  <p>{{mensaje}}</p>
   </div>
 </div>
 </div>
