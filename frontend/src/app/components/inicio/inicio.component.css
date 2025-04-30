@@ -41,3 +41,6 @@
 .max-width {
   max-width: 80%;
 }
+.img-fluid {
+  height: 120px;
+}

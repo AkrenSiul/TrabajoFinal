@@ -4,6 +4,7 @@ import {FakeProducstInterface} from '../../common/fake-producst-interface';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { Agents} from '../../common/agent-interface-test';
 import {NgbCarousel, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
+import {InterfaceProductos} from '../../common/productos';
 
 @Component({
   selector: 'app-inicio',
@@ -17,6 +18,7 @@ import {NgbCarousel, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
 export class InicioComponent {
   private readonly productService: TestServiceService = inject(TestServiceService);
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
+  productos: InterfaceProductos[] = [];
   form: FormGroup = this.formBuilder.group(
     {
 
@@ -30,6 +32,7 @@ export class InicioComponent {
     this.getProducts();
     this.getAgents();
     this.getTest();
+    this.getProductos();
   }
 
 
@@ -68,6 +71,23 @@ export class InicioComponent {
         },
         error: err => {
           console.log(err.message);
+        }
+      }
+    )
+  }
+
+  getProductos() {
+    this.productService.getProduct().subscribe(
+      {
+        next: product => {
+          this.productos = product;
+          console.log(product);
+        },
+        error: err => {
+          console.log(err.message);
+        },
+        complete: () => {
+          console.log('Productos traídos');
         }
       }
     )

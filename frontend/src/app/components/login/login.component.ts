@@ -1,6 +1,8 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TestServiceService} from '../../services/test-service.service';
+import {AuthService} from '../AuthService/AuthService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,9 @@ import {TestServiceService} from '../../services/test-service.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  private readonly authService: AuthService = inject(AuthService);
+  private readonly router: Router = inject(Router);
   private readonly testService: TestServiceService = inject(TestServiceService);
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   formLogin: FormGroup = this.formBuilder.group(
@@ -26,10 +30,7 @@ export class LoginComponent {
   get contrasenyas(): any {
     return this.formLogin.get('contrasenya')
   }
-
-  usuario = '';
-  contrasenya = '';
-  mensaje = '';
+  mensaje = ''
   constructor() {
   }
 
@@ -41,16 +42,32 @@ export class LoginComponent {
       this.testService.postLogin(usuario, contrasenya).subscribe(
         {
           next: value => {
-            this.mensaje = 'Bienvenido ' + value.usuario.usuario;
+            localStorage.setItem('loginOn', 'true');
+            localStorage.setItem('usuario', value.usuario.usuario);
+            localStorage.setItem('rol', value.usuario.rol)
+            console.log(value.usuario.rol)
+            this.mensaje = 'Bienvenido ' + value.usuario;
             console.log('Usuario conectado');
+            this.router.navigateByUrl('/inicio')
           },
           error: err => {
             this.mensaje = 'Error al iniciar sesión';
-            console.log('Login error', err.message);
+            this.mensaje = 'Login error';
+            console.log(err.message)
+            this.formLogin.reset();
           }
         }
       )
     }
   }
+
+  ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      console.log('Usuario logueado:', this.authService.getUsuario());
+    } else {
+      console.log('No logueado');
+    }
+  }
+
 
 }

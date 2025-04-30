@@ -26,17 +26,24 @@
           Trabaja con nosotros
         </a>
       </li>
+      @if(esAdmin) {
+      <li class="nav-item">
+        <a routerLink="/cart" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Lista de usuarios
+        </a>
+      </li>
+      }
     </ul>
     <div class="d-flex align-items-center">
-      <a routerLink="/trabaja-nosotros" class="nav-link px-3 text-white text-center" routerLinkActive="active-link">
+      <a routerLink="/cart" class="nav-link px-3 text-white text-center" routerLinkActive="active-link">
         <fa-icon [icon]="faCart"></fa-icon>
       </a>
-      @if(!login){
+      @if(!authService.isLoggedIn()){
       <div type="button" class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active-link">Login</div>
       }
       <!-- Mostrar botón de cerrar sesión si el usuario está logueado -->
-      @if (login) {
-        <div type="button" class="btn btn-warning" (click)="login=false">Cerrar Sesión</div>
+      @if (authService.isLoggedIn()) {
+        <div type="button" class="btn btn-warning" (click)="logOut()">Cerrar Sesión</div>
       }
     </div>
 
