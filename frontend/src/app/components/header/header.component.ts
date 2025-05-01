@@ -19,11 +19,14 @@ export class HeaderComponent implements OnInit {
   public readonly authService: AuthService = inject(AuthService);
   private readonly testService: TestServiceService = inject(TestServiceService);
   faCart = faCartShopping;
+
   esAdmin = false;
 
-
-  ngOnInit() {
-    this.esAdmin = this.authService.isAdmin();
+  constructor() {
+    console.log(this.esAdmin);
+    if (this.authService.isLoggedIn()) {
+      console.log('Usuario logueado:', this.authService.getUsuario());
+    }    this.esAdmin = this.authService.isAdmin();
     if (this.authService.isLoggedIn()) {
       console.log('Usuario logueado:', this.authService.getUsuario());
     } else {
@@ -36,4 +39,8 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  ngOnInit() {
+
+
+  }
 }

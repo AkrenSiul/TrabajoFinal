@@ -36,8 +36,8 @@ export class TestServiceService {
   postLogin(usuario: string, contrasenya: string): Observable<any> {
     return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {headers: this.headers});
   }
-  postRegistro(): Observable<any> {
-    return this.http.post(this.API_URL+'registro', {headers: this.headers})
+  postRegistro(usuario: string, contrasenya: string, email: string): Observable<any> {
+    return this.http.post(this.API_URL+'registro', {usuario, contrasenya, email}, {headers: this.headers})
   }
 
   logOut(): Observable<any> {

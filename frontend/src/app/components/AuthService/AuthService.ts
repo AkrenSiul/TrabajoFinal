@@ -16,12 +16,13 @@ export class AuthService {
     localStorage.removeItem('loginOn');
     localStorage.removeItem('usuario');
     localStorage.removeItem('rol');
+
   }
 
   getUsuario() {
     const usuario = localStorage.getItem('usuario');
     const rol = localStorage.getItem('rol');
-    return {usuario, rol};
-
+    const email = localStorage.getItem('email');
+    return {usuario, rol, email};
   }
 }
