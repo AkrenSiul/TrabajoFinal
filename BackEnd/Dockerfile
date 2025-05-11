@@ -21,4 +21,6 @@ COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+RUN printf "upload_max_filesize=20M\npost_max_size=25M\nmax_file_uploads=20\n" > /usr/local/etc/php/conf.d/uploads.ini
+
 EXPOSE 80

@@ -9,35 +9,58 @@ class CorsFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        $origin = $request->getHeaderLine('Origin');
+        // Eliminar cabeceras porque Docker crea sus propias
+        header_remove('Access-Control-Allow-Origin');
+        header_remove('Access-Control-Allow-Methods');
+        header_remove('Access-Control-Allow-Headers');
+        header_remove('Access-Control-Allow-Credentials');
+
+        $origin = $_SERVER['HTTP_ORIGIN'] ?? '*';
+
+
         $allowedOrigins = [
             'http://localhost:4200',
-            'http://127.0.0.1:4200'
         ];
 
-        // Verificar si el origen es permitido
         if (in_array($origin, $allowedOrigins)) {
-            header("Access-Control-Allow-Origin: http://localhost:4200");
+            header('Access-Control-Allow-Origin: ' . $origin);
+        } else {
+            header('Access-Control-Allow-Origin: *'); // O puedes bloquear
         }
 
-        // Métodos permitidos
+
+
         header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
 
-        // Cabeceras permitidas
+
         header("Access-Control-Allow-Headers: Content-Type");
 
-        // Indicar si las credenciales están permitidas
-        header("Access-Control-Allow-Credentials: true");
 
         // Si es una petición OPTIONS (preflight), respondemos aquí
-        if ($request->getMethod() === 'options') {
-            header('HTTP/1.1 200 OK');
+        if ($request->getMethod() === 'OPTIONS') {
+            http_response_code(200);
             exit;
         }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        return $response;
+        $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+        $allowedOrigins = [
+            'http://localhost:4200',
+        ];
+
+        if (in_array($origin, $allowedOrigins)) {
+            header('Access-Control-Allow-Origin: ' . $origin);
+        }
+
+        header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
+        header("Access-Control-Allow-Headers: Content-Type");
+        // header('Access-Control-Allow-Credentials: true'); // solo si lo necesitas
+
+        if ($request->getMethod() === 'OPTIONS') {
+            return service('response')->setStatusCode(200);
+        }
     }
 }

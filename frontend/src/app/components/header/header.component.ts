@@ -1,12 +1,14 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {RouterLink, RouterLinkActive} from '@angular/router';
-import {FaIconComponent} from '@fortawesome/angular-fontawesome';
-import {faCartShopping} from '@fortawesome/free-solid-svg-icons/faCartShopping';
-import {AuthService} from '../AuthService/AuthService';
-import {TestServiceService} from '../../services/test-service.service';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
+import { AuthService } from '../AuthService/AuthService';
+import { ApiPanaderiaService } from '../../services/apiPanaderia.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [
     RouterLinkActive,
     RouterLink,
@@ -15,32 +17,36 @@ import {TestServiceService} from '../../services/test-service.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit {
-  public readonly authService: AuthService = inject(AuthService);
-  private readonly testService: TestServiceService = inject(TestServiceService);
+export class HeaderComponent implements OnInit, OnDestroy {
+  private readonly authService = inject(AuthService);
+  private readonly testService = inject(ApiPanaderiaService);
   faCart = faCartShopping;
 
+  isLoggedIn = false;
   esAdmin = false;
 
-  constructor() {
-    console.log(this.esAdmin);
-    if (this.authService.isLoggedIn()) {
-      console.log('Usuario logueado:', this.authService.getUsuario());
-    }    this.esAdmin = this.authService.isAdmin();
-    if (this.authService.isLoggedIn()) {
-      console.log('Usuario logueado:', this.authService.getUsuario());
-    } else {
-      console.log('No logueado');
-    }
+  private subscriptions = new Subscription();
+
+  ngOnInit() {
+    this.subscriptions.add(
+      this.authService.loginOn$.subscribe(isLogged => {
+        this.isLoggedIn = isLogged;
+      })
+    );
+
+    this.subscriptions.add(
+      this.authService.isAdmin$.subscribe(isAdmin => {
+        this.esAdmin = isAdmin;
+      })
+    );
   }
+
   logOut() {
     this.testService.logOut();
     this.authService.logout();
   }
 
-
-  ngOnInit() {
-
-
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
 }

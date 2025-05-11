@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => '3306',
+        'hostname'     => 'db:3306',
         'username'     => 'adminPanaderia',
         'password'     => 'panaderiaUsuario',
         'database'     => 'panaderia',

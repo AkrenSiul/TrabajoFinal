@@ -9,10 +9,10 @@
     [showNavigationIndicators]=true
     style="background-color: grey"
     [wrap]="true">
-      @for(agent of agents; track $index) {
+      @for(producto of productos; track $index) {
       <ng-template ngbSlide class="w-25">
         <div class="d-flex justify-content-center">
-          <img width="300px" height="300px" src="{{agent.fullPortrait}}" alt="Random first slide" />
+          <img width="300px" height="300px" src="{{producto.imagen_url}}" alt="Random first slide" />
         </div>
         <div class="carousel-caption text-dark">
           <h3>First slide label</h3>
@@ -25,62 +25,113 @@
   </div>
 </section>
 <section class="mt-4 mx-auto my-auto max-width">
-
   <br>
   <div class="row g-4">
-    <div class="col-3"></div>
+    <div class="col-3 d-flex justify-content-center">
+      <select class="form-select w-50 h-50 fw-bold" [(ngModel)]="categoriaSeleccionada" (ngModelChange)="onCategoriaChange(categoriaSeleccionada)">
+        <option class="text-center fw-bold" [ngValue]="null">Ver todos</option>
+        @for(categoria of categorias; track categoria.id) {
+        <option class="text-center fw-bold" [ngValue]="categoria.id">
+         {{ categoria.nombre }}
+        </option>
+        }
+      </select>
+    </div>
     <div class="col-6">
-      <form>
-        <div class="mb-3">
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="search" (keydown.enter)="getAgents()">
+      <form class="d-flex mb-3">
+        <div class="w-75">
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="search" (keydown.enter)="getProductos()">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary mx-2">Submit</button>
       </form>
     </div>
     <div class="col-3"></div>
+    <div *ngIf="productos.length === 0" class="min-vh-50 d-flex justify-content-center align-items-center flex-column">
+      <h4 class="text-center">No hay productos en esta categoría</h4>
+    </div>
     @for(producto of productos; track producto.id) {
-      <div class="col-2 p-1 text-center justify-content-evenly">
-        <div class="card h-100">
-          <div class="d-flex justify-content-center">
-            <img class="img-fluid w-50" src="{{producto.imagen_url}}" alt="no-img">
-          </div>
-          <div class="card-header border-0">
-            <div class="card-title m-2">
-              <h3 >{{producto.nombre}}</h3>
+      <div class="col-md-4 col-lg-3 p-2 text-center d-flex">
+        <div class="card h-100 w-100 d-flex flex-column justify-content-between p-3">
+          <img class="img-fluid mx-auto" src="{{ producto.imagen_url }}" alt="Imagen producto" style="max-height: 180px; object-fit: contain;">
+          <div class="card-body">
+            <p class="text-muted m-0">Pan blanco</p>
+            <h5 class="card-title mt-1">{{ producto.nombre }}</h5>
+            <p class="badge bg-primary p-1"> {{ producto.categoria }}</p>
+            <p class="card-text small text-secondary">{{ producto.descripcion }}</p>
+            <p class="fs-5 fw-bold">{{ producto.precio  | currency :'EUR' }}</p>
+@if(!admin){
+            <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+              <input type="number" min="1" [(ngModel)]="producto.cantidad" class="form-control w-25 text-center p-1"/>
+              <button class="btn btn-dark btn-sm" (click)="addToCart(producto)"><fa-icon [icon]="faCartPlus"></fa-icon> </button>
             </div>
+}
           </div>
-          <div class="card-body m-2">
-            <p>{{ producto.descripcion }}</p>
-          </div>
-          <div class="card-footer border-0">
-            <div class="btn btn-addCart m-1 ">
-              <span class="text-dark">Añadir al carrito</span>
+          @if(admin) {
+            <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+              <button class="btn btn-primary btn-sm" (click)="editModal(producto)">
+                <fa-icon [icon]="faEdit"></fa-icon>
+              </button>
+              <input type="number"
+                     min="1"
+                     [max]="producto.stock"
+                     [(ngModel)]="producto.cantidad" class="form-control w-25 text-center p-1"/>
+              <button class="btn btn-dark btn-sm" (click)="addToCart(producto)"><fa-icon [icon]="faCartPlus"></fa-icon> </button>
+              <button class="btn btn-danger btn-sm" (click)="delete(producto.id)"><fa-icon [icon]="faTrash"></fa-icon> </button>
             </div>
-          </div>
-        </div>
-      </div>
-    }
-    @for(agent of agents; track $index){
-      <div class="col-2 p-1 text-center justify-content-evenly">
-        <div class="card h-100">
-          <div class="d-flex justify-content-center">
-            <img class="img-fluid w-50 " src="{{agent.fullPortrait}}" alt="no-img">
-          </div>
-          <div class="card-header border-0">
-            <div class="card-title m-2">
-              <h3 >{{agent.displayName}}</h3>
-            </div>
-          </div>
-          <div class="card-body m-2">
-            <p>fdsdgfsdfsd</p>
-          </div>
-          <div class="card-footer border-0">
-            <div class="btn btn-addCart m-1 ">
-              <span class="text-dark">Añadir al carrito</span>
-            </div>
-          </div>
+          }
         </div>
       </div>
     }
   </div>
 </section>
+
+<ng-container >
+  <ng-template #modalEditar let-modal>
+    <div class="w-auto mx-auto p-2">
+    <div class="modal-header pt-2 pb-2 border border-0">
+      <h4 class="modal-title">Editar producto</h4>
+      <button type="button" class="btn-close btn-outline" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formProduct" (ngSubmit)="edit()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label pb-2">Nombre</label>
+          <input formControlName="nombre" type="text" class="form-control" id="nombre">
+        </div>
+        <div class="mb-3">
+          <label for="categoria" class="form-label pb-2">Categoría</label>
+          <select id="categoria" class="form-select" formControlName="categoria_id">
+            <option [ngValue]="null" disabled>Seleccione una categoría</option>
+            @for(categoria of categorias; track categoria.id) {
+            <option [ngValue]="categoria.id">
+              {{ categoria.nombre }}
+            </option>
+            }
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="descripcion" class="form-label pb-2">Descripción</label>
+          <input formControlName="descripcion" type="text" class="form-control" id="descripcion">
+        </div>
+        <div class="mb-3">
+          <label for="imagen_url" class="form-label pb-2">Imagen</label>
+          <input type="file" class="form-control" id="imagen_url"
+                 (change)="onFileSelected($event)"
+                 accept=".jpg,.jpeg,.png">
+        </div>
+        <div class="mb-3">
+          <label for="precio" class="form-label pb-2">Precio</label>
+          <input formControlName="precio" type="number" class="form-control" id="precio">
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label pb-2">Stock</label>
+          <input formControlName="stock" type="number" class="form-control" id="stock">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+    </div>
+  </ng-template>
+</ng-container>

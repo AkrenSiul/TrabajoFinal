@@ -1,68 +1,64 @@
-import {Component, inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {TestServiceService} from '../../services/test-service.service';
-import {AuthService} from '../AuthService/AuthService';
-import {Router} from '@angular/router';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { Component, inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApiPanaderiaService } from '../../services/apiPanaderia.service';
+import { AuthService } from '../AuthService/AuthService';
+import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
-  imports: [
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
   @ViewChild('modalRegistro', { static: true }) registroTemplate!: TemplateRef<any>;
   private readonly modalService = inject(NgbModal);
-  private readonly authService: AuthService = inject(AuthService);
-  private readonly router: Router = inject(Router);
-  private readonly testService: TestServiceService = inject(TestServiceService);
-  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+  private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly testService = inject(ApiPanaderiaService);
+  private readonly formBuilder = inject(FormBuilder);
 
   isRegisterOn = false;
+  mensaje = '';
+
   formLogin: FormGroup = this.formBuilder.group({
     usuario: ['', [Validators.required, Validators.minLength(4)]],
     contrasenya: ['', [Validators.required, Validators.minLength(4)]],
   });
 
-  get usuarios() {
+  get usuario() {
     return this.formLogin.get('usuario');
   }
-
-  get contrasenyas() {
+  get contrasenya() {
     return this.formLogin.get('contrasenya');
   }
 
-  mensaje = '';
-
-  constructor() {}
+  ngOnInit() {
+    this.authService.loginOn$.subscribe(isLogged => {
+      if (isLogged) {
+        console.log('Usuario ya logueado:', this.authService.getUsuario());
+      }
+    });
+  }
 
   onSubmit() {
     if (this.formLogin.valid) {
       const usuario = this.formLogin.value.usuario.toLowerCase();
       const contrasenya = this.formLogin.value.contrasenya;
 
-      this.testService.postLogin(usuario, contrasenya).subscribe(
-        {
-          next: value => {
-            localStorage.setItem('loginOn', 'true');
-            localStorage.setItem('usuario', value.usuario.usuario);
-            localStorage.setItem('rol', value.usuario.rol);
-            console.log(value.usuario.rol);
-            this.mensaje = 'Bienvenido ' + value.usuario;
-            console.log('Usuario conectado');
-            this.router.navigateByUrl('/inicio');
-          },
-          error: err => {
-            this.mensaje = 'Error al iniciar sesión. ' + (err.error?.messages?.error || err.message);
-            console.log(err.message);
-            this.formLogin.reset();
-          }
+      this.testService.postLogin(usuario, contrasenya).subscribe({
+        next: value => {
+          this.authService.login(value.usuario.usuario, value.usuario.rol, value.usuario.email);
+          this.mensaje = `Bienvenido, ` + value.usuario.usuario;
+          this.router.navigateByUrl('/inicio');
+        },
+        error: err => {
+          this.mensaje = 'Error al iniciar sesión. ' + (err.error?.messages?.error || err.message);
+          this.formLogin.reset();
         }
-      );
+      });
     }
   }
 
@@ -74,7 +70,7 @@ export class LoginComponent implements OnInit {
     this.isRegisterOn = true;
     this.mensaje = '';
     this.addRegisterFields();
-    const modalRef = this.modalService.open(this.registroTemplate, { centered: true});
+    const modalRef = this.modalService.open(this.registroTemplate, { centered: true });
 
     modalRef.result.finally(() => {
       this.isRegisterOn = false;
@@ -99,18 +95,6 @@ export class LoginComponent implements OnInit {
         }
       });
     }
-  }
-
-  ngOnInit() {
-    if (this.authService.isLoggedIn()) {
-      console.log('Usuario logueado:', this.authService.getUsuario());
-    } else {
-      console.log('No logueado');
-    }
-  }
-
-  ngAfterViewInit() {
-    console.log('Registro Modal Template:', this.registroTemplate);
   }
 
   addRegisterFields() {

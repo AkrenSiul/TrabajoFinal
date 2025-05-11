@@ -6,6 +6,7 @@
           Tienda Pan-tástico
         </a>
       </li>
+      @if(!esAdmin){
       <li class="nav-item">
         <a routerLink="/quienes-somos" class="nav-link px-2 text-white" routerLinkActive="active-link">
           Quienes somos
@@ -26,26 +27,30 @@
           Trabaja con nosotros
         </a>
       </li>
+      }
       @if(esAdmin) {
       <li class="nav-item">
-        <a routerLink="/cart" class="nav-link px-2 text-white" routerLinkActive="active-link">
+        <a routerLink="/userList" class="nav-link px-2 text-white" routerLinkActive="active-link">
           Lista de usuarios
         </a>
       </li>
+        <li class="nav-item">
+          <a routerLink="/addProduct" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Añadir producto
+          </a>
+        </li>
       }
     </ul>
     <div class="d-flex align-items-center">
       <a routerLink="/cart" class="nav-link px-3 text-white text-center" routerLinkActive="active-link">
         <fa-icon [icon]="faCart"></fa-icon>
       </a>
-      @if(!authService.isLoggedIn()){
+      @if(!isLoggedIn){
       <div type="button" class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active-link">Login</div>
       }
-      <!-- Mostrar botón de cerrar sesión si el usuario está logueado -->
-      @if (authService.isLoggedIn()) {
+      @if (isLoggedIn) {
         <div type="button" class="btn btn-warning" (click)="logOut()">Cerrar Sesión</div>
       }
     </div>
-
   </div>
 </nav>

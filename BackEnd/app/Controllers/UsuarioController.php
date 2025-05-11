@@ -16,37 +16,41 @@ class UsuarioController extends ResourceController
     }
     public function login()
     {
-        // Obtenemos los datos enviados en formato JSON
         $data = $this->request->getJSON(true);
 
-        // Primero, verificamos que se haya enviado el 'usuario' y 'contrasenya'
         if (!$data || !isset($data['usuario'], $data['contrasenya'])) {
             return $this->failValidationErrors('Faltan datos');
         }
 
-        // Ahora, buscamos el usuario en la base de datos
-        $usuarioModel = new UsuarioModel(); // Asegúrate de tener esta instancia del modelo
-        $user = $usuarioModel->getUserByUsuario($data['usuario']); // Usamos el 'usuario' del JSON
+        $usuarioModel = new UsuarioModel();
+        $user = $usuarioModel->getUserByUsuario($data['usuario']);
 
-        // Verificamos si el usuario existe
         if (!$user) {
             return $this->failNotFound('Usuario no encontrado');
         }
 
-
-        if ($user['contrasenya'] !== $data['contrasenya']) {
+        if (!password_verify($data['contrasenya'], $user['contrasenya'])) {
             return $this->failUnauthorized('Contraseña incorrecta');
         }
 
 
+        // FUNCIONA
+        /*
         $this->session->set('usuario', [
-            'id' => $user['id'],          // Usamos el id del usuario obtenido de la base de datos
-            'usuario' => $user['usuario'], // El usuario de la base de datos
-            'rol' => $user['rol']         // El rol del usuario de la base de datos
+            'id' => $user['id'],
+            'usuario' => $user['usuario'],
+            'rol' => $user['rol']
         ]);
+        return $this->respond($this->session->get('usuario'));
+        */
 
-        // Respondemos con el mensaje de bienvenida
-        return $this->respond([$this->session->get('usuario')]);
+        // Obtener los datos de todo lo que contiene.
+        $data = [
+            'id' => $user['id'],
+            'usuario' => $user['usuario'],
+            'rol' => $user['rol']
+        ];
+        return $this->respond(['usuario' => $data]);
     }
 
 
@@ -63,6 +67,7 @@ class UsuarioController extends ResourceController
             [
                 'usuario' => $data['usuario'],
                 'contrasenya' => password_hash($data['contrasenya'], PASSWORD_DEFAULT),
+                'email' => $data['email'] | '',
                 'rol' => 'usuario',
             ]
         );
@@ -75,14 +80,52 @@ class UsuarioController extends ResourceController
         return $this->respond(['mensaje' => 'Sesión cerrada. Nos vemos']);
     }
 
+    // El usuario que usamos
     public function usuario()
     {
         $user = $this->session->get('usuario');
+        /*
         if (!$user) {
             return $this->failUnauthorized('No hay sesión, pruebe a iniciarla.');
-        }
+        }*/
         return $this->respond(['usuario' => $user]);
     }
+
+    // Lista de usuarios
+    public function getUsuarios() {
+        $usuarios = $this->model->findAll();
+
+        $usuarios = array_map(function($u) {
+            unset($u['contrasenya']);
+            return $u;
+        }, $usuarios);
+
+        return $this->respond($usuarios);
+    }
+
+    public function deleteUsuario($id) {
+        if($this->model->find($id)) {
+            $this->model->delete($id);
+            return $this->respond('Usuario eliminado');
+        }
+        return $this->failNotFound('Usuario no encontrado. Fallo al eliminar');
+    }
+    public function updateUsuario($id) {
+        $data = $this->request->getJSON(true);
+        if($this->model->find($id)) {
+            if (!empty($data['contrasenya'])) {
+                $data['contrasenya'] = password_hash($data['contrasenya'], PASSWORD_DEFAULT);
+            } else {
+                unset($data['contrasenya']);
+            }
+        $this->model->update($id, $data);
+        return $this->respond('Usuario modificado');
+    }
+        return $this->failNotFound('Usuario no encontrado. Fallo al modificar');
+    }
+
+
+   /* CAMBIAR ROL FUNCIONAL
     public function cambiarRol($id)
     {
         $usuarioSesion = $this->session->get('usuario');
@@ -91,7 +134,6 @@ class UsuarioController extends ResourceController
         {
             return $this->failForbidden('Cambio no autorizado. Hable con el administrador de sistemas.');
         }
-
         $data = $this->request->getJSON(true);
         if (!in_array($data['rol'], ['superadmin', 'admin', 'usuario'])) {
             return $this->failValidationErrors('Rol no válido');
@@ -99,4 +141,7 @@ class UsuarioController extends ResourceController
         $this->model->update($id, ['rol' => $data['rol']]);
         return $this->respond(['mensaje' => 'Rol actualizado correctamente']);
     }
+   */
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Filters\CorsFilter;
 use CodeIgniter\Config\BaseService;
 
 /**
@@ -19,6 +20,14 @@ use CodeIgniter\Config\BaseService;
  */
 class Services extends BaseService
 {
+    public static function corsfilter(bool $getShared = true)
+    {
+        if ($getShared) {
+            return static::getSharedInstance('corsfilter');
+        }
+
+        return new CorsFilter();
+    }
     /*
      * public static function example($getShared = true)
      * {

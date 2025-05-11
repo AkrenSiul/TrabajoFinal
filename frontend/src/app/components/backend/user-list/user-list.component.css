@@ -1,0 +1,21 @@
+.tabla-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+th {
+
+}

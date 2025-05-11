@@ -6,6 +6,8 @@ import {QuienesSomosComponent} from './components/quienes-somos/quienes-somos.co
 import {TrabajaConNosotrosComponent} from './components/trabaja-con-nosotros/trabaja-con-nosotros.component';
 import {LoginComponent} from './components/login/login.component';
 import {CartComponent} from './components/cart/cart.component';
+import {UserListComponent} from './components/backend/user-list/user-list.component';
+import {AddProductComponent} from './components/backend/add-product/add-product.component';
 
 export const routes: Routes = [
   {
@@ -40,5 +42,13 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'userList',
+    component: UserListComponent
+  },
+  {
+    path: 'addProduct',
+    component: AddProductComponent
   }
 ];
