@@ -1,8 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {FakeProducstInterface} from '../common/fake-producst-interface';
-import {AgentInterfaceTest} from '../common/agent-interface-test';
 import {InterfaceProductos} from '../common/productos';
 
 @Injectable({
@@ -10,7 +8,6 @@ import {InterfaceProductos} from '../common/productos';
 })
 export class ApiPanaderiaService {
   private readonly http: HttpClient = inject(HttpClient);
-  urlAgents = 'https://valorant-api.com/v1/agents';
   private API_URL = 'http://localhost:8000/api/'
   private headers = new HttpHeaders(
     {
@@ -30,8 +27,8 @@ export class ApiPanaderiaService {
   postLogin(usuario: string, contrasenya: string): Observable<any> {
     return this.http.post(this.API_URL+'login', {usuario, contrasenya}, {headers: this.headers});
   }
-  postRegistro(usuario: string, contrasenya: string, email: string): Observable<any> {
-    return this.http.post(this.API_URL+'registro', {usuario, contrasenya, email}, {headers: this.headers})
+  postRegistro(formData: any): Observable<any> {
+    return this.http.post(this.API_URL+'registro', formData, {headers: this.headers})
   }
   logOut(): Observable<any> {
     return this.http.get(this.API_URL+'logout', {headers: this.headers})
@@ -67,11 +64,47 @@ export class ApiPanaderiaService {
     return this.http.delete(this.API_URL+'producto/deleteProducto/'+id);
   }
 
-  // GET CATEGORIAS
+  // CATEGORIAS
 
   getCategorias() {
     return this.http.get(this.API_URL+'producto/categoria');
   }
 
+
+  getCategoriaAll(): Observable<any> {
+    return this.http.get(this.API_URL+'categorias');
+  }
+
+  createCategoria(categoriaForm: any) {
+    return this.http.post(this.API_URL+'categorias', categoriaForm);
+  }
+  updateCategoria(id: string, categoriaForm: any) {
+    return this.http.put(this.API_URL+'categorias/'+id, categoriaForm);
+  }
+  deleteCategoria(id: string) {
+    return this.http.delete(this.API_URL+'categorias/'+id);
+  }
+
+  // SOLICITUD EMPLEO
+
+  getSolicitudEmpleo(): Observable<any> {
+    return this.http.get(this.API_URL+'solicitudes-empleo');
+  }
+  getSolicitudEmpleoDetail(id: string): Observable<any> {
+    return this.http.get(this.API_URL+'solicitudes-empleo/'+id);
+  }
+  getCV(id: string) {
+    return this.http.get(this.API_URL+'solicitudes-empleo/'+ id + '/cv', {
+      responseType: 'blob'
+    })
+  }
+
+  postSolicitudEmpleo(solicitudEmpleo: FormData) {
+    return this.http.post(this.API_URL+'solicitudes-empleo', solicitudEmpleo);
+  }
+
+  deleteSolicitudEmpleo(id: string) {
+    return this.http.delete(this.API_URL+'solicitudes-empleo/'+id);
+  }
 
 }

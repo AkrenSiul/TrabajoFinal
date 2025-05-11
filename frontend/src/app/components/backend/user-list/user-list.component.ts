@@ -17,7 +17,7 @@ import {Router} from '@angular/router';
 export class UserListComponent implements OnInit {
   @ViewChild('modalEditar', { static: true }) modalEditar!: TemplateRef<any>;
   private readonly modalService = inject(NgbModal);
-  private readonly testService = inject(ApiPanaderiaService);
+  private readonly panaderiaService = inject(ApiPanaderiaService);
   private readonly authService = inject(AuthService);
   private readonly formBuilder = inject(FormBuilder);
   private readonly router = inject(Router);
@@ -25,7 +25,6 @@ export class UserListComponent implements OnInit {
   users: any[] = [];
   mensaje = '';
   editandoUsuario: number | null = null;
-  isRegisterOn = false;
   admin = false;
 
   formUsers: FormGroup = this.formBuilder.group({
@@ -63,7 +62,7 @@ export class UserListComponent implements OnInit {
 
 
   getUsuarios() {
-    this.testService.getUsuarios().subscribe(
+    this.panaderiaService.getUsuarios().subscribe(
       {
         next: value => {
           this.users = value;
@@ -74,34 +73,23 @@ export class UserListComponent implements OnInit {
       }
     )
   }
-  /*getUsuarioActual() {
-    this.testService.getUsuario().subscribe(
-      {
-        next: value => {
-          this.rolUsuario = value.rol;
-          console.log(value.rol);
-          console.log(value);
-        },
-        error: err => {
-          console.log(err);
-        }
-      }
-    )
-
-  }*/
 
   deleteUser(id: string){
     console.log(id);
-    this.testService.deleteUsuarios(id).subscribe(
-      {
-        complete: () => {
-          alert('Usuario eliminado')
-        },
-        error: err => {
-          console.log(err.err.message);
+    const confirmado = window.confirm('¿Estás seguro de que quieres borrar este usuario?');
+
+    if (confirmado) {
+      this.panaderiaService.deleteUsuarios(id).subscribe(
+        {
+          complete: () => {
+            alert('Usuario eliminado')
+          },
+          error: err => {
+            console.log(err.err.message);
+          }
         }
-      }
-    )
+      )
+    }
   }
 
   updateUser(usuario: any) {
@@ -118,11 +106,35 @@ export class UserListComponent implements OnInit {
       centered: true
     });
     }
+  abrirCrear() {
+    this.editandoUsuario = null;
+    this.formUsers.reset();
+    this.mensaje = '';
+    this.modalService.open(this.modalEditar, {
+      centered: true
+    });
+  }
+  crear() {
+    if (this.formUsers.valid) {
+      const nuevoUsuario = this.formUsers.value;
+      this.panaderiaService.postRegistro(nuevoUsuario).subscribe({
+        next: () => {
+          this.mensaje = 'Usuario creado correctamente';
+          this.getUsuarios();
+          this.modalService.dismissAll();
+        },
+        error: err => {
+          console.error('Error al crear el usuario', err);
+          this.mensaje = 'Error al crear el usuario';
+        }
+      });
+    }
+  }
   editar() {
     if (this.formUsers.valid && this.editandoUsuario) {
       const datos = this.formUsers.value;
 
-      this.testService.patchUsuario(this.editandoUsuario.toString(), datos).subscribe({
+      this.panaderiaService.patchUsuario(this.editandoUsuario.toString(), datos).subscribe({
         next: () => {
           this.mensaje = 'Usuario actualizado correctamente';
           this.getUsuarios();

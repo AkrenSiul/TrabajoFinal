@@ -28,7 +28,7 @@ export class AddProductComponent implements OnInit{
     precio: [0, [Validators.required, Validators.min(0)]],
     stock: [0, [Validators.required, Validators.min(0)]],
     imagen_url: [null, Validators.required],
-    categoria_id: [1, Validators.required],
+    categoria_id: [null, Validators.required],
   });
 
   vistaPrevia = {

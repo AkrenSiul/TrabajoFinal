@@ -31,7 +31,7 @@
         <div class="mb-3">
           <label for="categoria" class="form-label">Categoría</label>
           <select id="categoria" class="form-select" formControlName="categoria_id" (change)="actualizarVistaPrevia()">
-            <option [ngValue]="null">Seleccione una categoría</option>
+            <option [ngValue]="null" disabled>Seleccione una categoría</option>
             @for(categoria of categorias; track categoria.id){
             <option [ngValue]="categoria.id">{{ categoria.nombre }}</option>
             }

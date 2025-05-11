@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-center pt-4">
+  <div class="d-flex">
+    <button class="btn btn-success" (click)="abrirCrear()">Añadir Categoría</button>
+  </div>
+</div>
+<div class="tabla-container">
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for(categoria of categorias; track categoria.id){
+        <tr>
+          <th>{{categoria.id}}</th>
+          <th>{{ categoria.nombre }}</th>
+          <th>{{ categoria.descripcion}}</th>
+          <th><fa-icon class="btn"  (click)="updateCategoria(categoria)" [icon]="faPenToSquare"></fa-icon></th>
+          <th>
+            <div class="btn" (click)="deleteCategoria(categoria.id)">
+              <svg width="25px" height="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+              </svg>
+            </div>
+          </th>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<ng-container ><ng-container>
+  <ng-template #modalEditar let-modal>
+    <div class="modal-header d-flex justify-content-between">
+      <h4 class="modal-title mx-auto">{{ editandoCategoria ? 'Editar Categoría' : 'Añadir Categoría' }}</h4>
+      <button type="button" class="btn btn-outline" (click)="modal.dismiss('Cerrar')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formCategoria" (ngSubmit)="editandoCategoria ? editar() : crear()">
+        <div class="form-group pb-2">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" formControlName="nombre" type="text" class="form-control" />
+        </div>
+        <div class="form-group pb-2">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+        </div>
+        <div class="d-flex justify-content-center pt-2">
+          <button type="submit" class="btn btn-primary">
+            {{ editandoCategoria ? 'Guardar Cambios' : 'Crear Categoría' }}
+          </button>
+        </div>
+      </form>
+      @if(mensaje) {
+        <p class="text-center mt-2">{{mensaje}}</p>
+      }
+    </div>
+  </ng-template>
+</ng-container>
+
+</ng-container>

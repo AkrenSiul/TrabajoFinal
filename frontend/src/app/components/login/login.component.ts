@@ -81,11 +81,9 @@ export class LoginComponent implements OnInit {
 
   registro() {
     if (this.formLogin.valid) {
-      const usuario = this.formLogin.value.usuario.toLowerCase();
-      const contrasenya = this.formLogin.value.contrasenya;
-      const email = this.formLogin.value.email;
+      const formData = this.formLogin.value;
 
-      this.testService.postRegistro(usuario, contrasenya, email).subscribe({
+      this.testService.postRegistro(formData).subscribe({
         next: () => {
           this.mensaje = 'Usuario registrado correctamente';
           this.formLogin.reset();

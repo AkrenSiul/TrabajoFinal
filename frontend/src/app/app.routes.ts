@@ -8,6 +8,11 @@ import {LoginComponent} from './components/login/login.component';
 import {CartComponent} from './components/cart/cart.component';
 import {UserListComponent} from './components/backend/user-list/user-list.component';
 import {AddProductComponent} from './components/backend/add-product/add-product.component';
+import {SolicitudEmpleoComponent} from './components/backend/solicitud-empleo/solicitud-empleo.component';
+import {
+  SolicitudEmpleoDetailComponent
+} from './components/backend/solicitud-empleo/solicitud-empleo-detail/solicitud-empleo-detail.component';
+import {CategoriasComponent} from './components/backend/categorias/categorias.component';
 
 export const routes: Routes = [
   {
@@ -50,5 +55,17 @@ export const routes: Routes = [
   {
     path: 'addProduct',
     component: AddProductComponent
+  },
+  {
+    path: 'solicitudesEmpleo',
+    component: SolicitudEmpleoComponent
+  },
+  {
+    path: 'solicitudesEmpleo/solicitudDetail/:id',
+    component: SolicitudEmpleoDetailComponent
+  },
+  {
+    path: 'categorias',
+    component: CategoriasComponent
   }
 ];

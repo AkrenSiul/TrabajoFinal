@@ -14,52 +14,46 @@
   </div>
 
   <div class="w-50 d-flex flex-column justify-content-center align-items-start ps-4">
-    <p class="mb-3">¿Quieres formar parte de un equipo dinámico y profesional?</p>
-    <p class="mb-3">Ofrecemos un entorno de trabajo flexible y oportunidades de crecimiento.</p>
-    <p class="mb-4">Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-       Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-       Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-       Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-       Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-      Buscamos personas apasionadas, comprometidas y con ganas de aprender.
-
+    <p class="mb-4 fw-bolder">¿Quieres formar parte de un equipo dinámico y profesional?</p>
+    <p class="mb-4">Ofrecemos un entorno de trabajo flexible y oportunidades de crecimiento.</p>
+    <p class="mb-4">En Pan-tástico estamos en búsqueda constante de nuevos talentos e integrantes activos del equipo.
+      Necesitamos personas como tú, que crean en el proyecto y quieran crecer junto a nosotros.
+    </p>
+    <p class="mb-4">
+      Pan-tástico te ofrece la posibilidad de trabajar en nuestras cafeterías – panaderías,
+      con oportunidades reales de crecimiento dentro del equipo. Nuestros procesos de selección no se
+      centran únicamente en la experiencia previa, sino también en el potencial que tienes y en tu
+      proyección a largo plazo. Nos encargaremos de formarte para que puedas desarrollar tus habilidades,
+      desde las bases del obrador hasta la atención en sala y la presentación final del producto.
+    </p>
+    <p class="mb-4">
+      Invertiremos nuestro tiempo para que te conviertas en un profesional,
+      acompañándote paso a paso con nuestro sistema de trabajo.
     </p>
     <a href="trabaja-nosotros/#formulario" class="btn btn-primary mt-2">
       Enviar solicitud
     </a>
   </div>
 </section>
-<section class="bg-blue vh-50">
-  <div class="d-flex">
-    <div class="mx-auto my-auto">
-      <h1>Los valores que buscamos: </h1>
-      <ul>
-        <li class="">fsdfsdfds</li>
+<section class="bg-blue vh-60 d-flex align-items-center justify-content-center">
+    <div class="mx-auto my-auto text-center">
+      <h2>LOS VALORES QUE BUSCAMOS </h2>
+      <ul class="list-unstyled">
+        <li class="pt-3 fw-bold"><p>Orientación al cliente y amabilidad</p></li>
+        <li class="pt-3 fw-bold"><p>Trabajo en equipo</p></li>
+        <li class="pt-3 fw-bold"><p>Responsabilidad y compromiso</p></li>
+        <li class="pt-3 fw-bold"><p>Actitud positiva</p></li>
+        <li class="pt-3 fw-bold"><p>Orientación al cliente y amabilidad</p></li>
+        <li class="pt-3 fw-bold"><p>Actitud y ganas de crecer en nuestra empresa</p></li>
+        <li class="pt-3 fw-bold"><p>Afán de conocimiento y constante aprendizaje</p></li>
       </ul>
     </div>
-  </div>
-  <h1>Hola</h1>
-
-
 </section>
 
 
-<section id="formulario" class="p-5 bg-light" id="formulario">
+<section id="formulario" class="p-5 bg-light">
+  <div class="d-flex justify-content-center align-items-stretch">
+    <div class="w-40 p-4">
   <h2 class="mb-4">Formulario de contacto</h2>
   <form [formGroup]="formContact" (ngSubmit)="onSubmit()">
     <div class="mb-3">
@@ -90,5 +84,9 @@
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="formContact.invalid">Enviar</button>
   </form>
-
+    </div>
+    <div class="w-20">
+      <img src="assets/trabaja-nosotros.jpg" alt="img" class="img-fluid h-100 object-fit-cover">
+    </div>
+  </div>
 </section>

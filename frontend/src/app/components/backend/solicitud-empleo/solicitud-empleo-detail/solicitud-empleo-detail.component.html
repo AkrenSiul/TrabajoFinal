@@ -1,0 +1,43 @@
+<div class="m-4 text-center d-flex justify-content-center">
+  <div class="card col-8 bg-light border border-secondary w-40">
+    <div class="card-header">
+      <h2>Solicitud de Empleo</h2>
+    </div>
+
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-12 text-start">
+          <strong>Nombre:</strong>
+          <p>{{ solicitud.nombre }}</p>
+        </div>
+        <div class="col-12 text-start">
+          <strong>Email:</strong>
+          <p>{{ solicitud.email }}</p>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-12 text-start">
+          @if(solicitud.mensaje){
+          <strong>Mensaje:</strong>
+          <p>{{ solicitud.mensaje }}</p>
+          } @else {
+          <p>No hay mensaje incluido.</p>
+          }
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-start">
+          <strong>Currículum:</strong><br />
+          <div
+            class="btn btn-outline-primary mt-2"
+            (click)="descargarCV(solicitud.id)"
+          >
+            Descargar CV
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

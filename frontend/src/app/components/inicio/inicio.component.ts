@@ -43,7 +43,7 @@ export class InicioComponent implements OnInit{
       imagen_url: [''],
       precio: [0],
       stock: [0],
-      categoria_id: [null],
+      categoria_id: [null, Validators.required],
     }
   )
 
@@ -109,7 +109,7 @@ export class InicioComponent implements OnInit{
       imagen_url: producto.imagen_url,
       precio: producto.precio,
       stock: producto.stock,
-      categoria_id: producto.categoria?.id || 1
+      categoria_id: producto.categoria?.id || null
     });
     this.modalService.open(this.modalEditar, { centered: true });
   }
