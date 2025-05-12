@@ -6,9 +6,10 @@ import {InterfaceProductos} from '../../common/productos';
 import {AuthService} from '../AuthService/AuthService';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import {faEdit} from '@fortawesome/free-solid-svg-icons/faEdit';
-import {CurrencyPipe, NgIf} from '@angular/common';
+import {CurrencyPipe} from '@angular/common';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-inicio',
@@ -19,13 +20,13 @@ import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
     ReactiveFormsModule,
     CurrencyPipe,
     FormsModule,
-    NgIf
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent implements OnInit{
   @ViewChild('modalEditar', { static: true }) modalEditar!: TemplateRef<any>;
+  private readonly cartService = inject(CartService);
   private readonly productService: ApiPanaderiaService = inject(ApiPanaderiaService);
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private authService = inject(AuthService);
@@ -36,6 +37,7 @@ export class InicioComponent implements OnInit{
   admin = false;
   categorias: any;
   categoriaSeleccionada: number | null = null;
+  cartItems: { [productoId: string]: number } = {};
   formProduct: FormGroup = this.formBuilder.group(
     {
       nombre: [''],
@@ -83,9 +85,9 @@ export class InicioComponent implements OnInit{
     }
     this.productService.getProducts(url).subscribe(
       {
-        next: product => {
-          this.productos = product.map(p => ({
-            ...p || '',
+        next: productos => {
+          this.productos = productos.map(producto => ({
+            ...producto,
             cantidad: 1,
           }))
         },
@@ -165,9 +167,23 @@ export class InicioComponent implements OnInit{
       console.log(this.selectedFile);
     }
   }
+
   addToCart(producto: InterfaceProductos) {
     const cantidad = producto.cantidad || 1;
+    const enCarrito = this.cartItems[producto.id] || 0;
+    const disponible = producto.stock - enCarrito;
+
+    if (cantidad > disponible) {
+      alert(`Solo puedes añadir ${disponible} unidades. Ya tienes ${enCarrito} en el carrito.`);
+      return;
+    }
+    this.cartItems[producto.id] = enCarrito + cantidad;
+    this.cartService.addProduct({
+      ...producto,
+      cantidad: this.cartItems[producto.id]
+    });
   }
+
 
   getCategoria() {
     this.productService.getCategorias().subscribe(

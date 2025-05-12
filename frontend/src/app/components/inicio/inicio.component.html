@@ -46,9 +46,11 @@
       </form>
     </div>
     <div class="col-3"></div>
-    <div *ngIf="productos.length === 0" class="min-vh-50 d-flex justify-content-center align-items-center flex-column">
+    @if(productos.length === 0) {
+    <div class="min-vh-50 d-flex justify-content-center align-items-center flex-column">
       <h4 class="text-center">No hay productos en esta categoría</h4>
     </div>
+    }
     @for(producto of productos; track producto.id) {
       <div class="col-md-4 col-lg-3 p-2 text-center d-flex">
         <div class="card h-100 w-100 d-flex flex-column justify-content-between p-3">
@@ -58,11 +60,26 @@
             <h5 class="card-title mt-1">{{ producto.nombre }}</h5>
             <p class="badge bg-primary p-1"> {{ producto.categoria }}</p>
             <p class="card-text small text-secondary">{{ producto.descripcion }}</p>
-            <p class="fs-5 fw-bold">{{ producto.precio  | currency :'EUR' }}</p>
+            <div class="d-flex justify-content-around align-items-center">
+              <p class="card-text m-0">{{ producto.precio | currency: 'EUR' }}</p>
+              <p class="m-0">
+            <span class="badge text-dark p-2">
+                Stock disponible: {{ producto.stock - (cartItems[producto.id] || 0) }}
+            </span>
+              </p>
+            </div>
 @if(!admin){
             <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
-              <input type="number" min="1" [(ngModel)]="producto.cantidad" class="form-control w-25 text-center p-1"/>
-              <button class="btn btn-dark btn-sm" (click)="addToCart(producto)"><fa-icon [icon]="faCartPlus"></fa-icon> </button>
+              <input
+                type="number"
+                min="1"
+                [max]="producto.stock"
+                class="form-control w-25 text-center p-1"
+                [(ngModel)]="producto.cantidad"
+              />
+              <button class="btn btn-dark btn-sm" (click)="addToCart(producto)">
+                <fa-icon [icon]="faCartPlus"></fa-icon>
+              </button>
             </div>
 }
           </div>

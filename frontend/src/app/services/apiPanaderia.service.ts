@@ -15,9 +15,6 @@ export class ApiPanaderiaService {
     }
   );
 
-  constructor() { }
-
-
   getTest(): Observable<any> {
     return this.http.get<any>('http://localhost:8000/api/test')
   }
@@ -105,6 +102,27 @@ export class ApiPanaderiaService {
 
   deleteSolicitudEmpleo(id: string) {
     return this.http.delete(this.API_URL+'solicitudes-empleo/'+id);
+  }
+
+  // CONSULTAS
+
+  getConsultas(): Observable<any> {
+    return this.http.get(this.API_URL+'consultas-contacto');
+  }
+  getConsulta(id: string) {
+    return this.http.get(this.API_URL+'consultas-contacto/'+id);
+  }
+  postConsulta(consulta: FormData) {
+    return this.http.post(this.API_URL+'consultas-contacto', consulta);
+  }
+  deleteConsulta(id: string) {
+    return this.http.delete(this.API_URL+'consultas-contacto/'+id);
+  }
+
+  // DETALLE PEDIDOS
+
+  postDetallePedidos(pedido: any) {
+    return this.http.post(this.API_URL, pedido);
   }
 
 }

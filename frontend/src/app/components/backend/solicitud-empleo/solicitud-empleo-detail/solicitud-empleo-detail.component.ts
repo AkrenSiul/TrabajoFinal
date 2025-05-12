@@ -26,7 +26,7 @@ export class SolicitudEmpleoDetailComponent implements OnInit {
           console.log(err)
         },
         complete: () => {
-          console.log('Producto traído correctamente')
+          console.log('Consulta traída correctamente')
         }
       }
     )

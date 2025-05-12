@@ -1,11 +1,9 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
-import {faUserPen} from '@fortawesome/free-solid-svg-icons/faUserPen';
 import {faCircleInfo} from '@fortawesome/free-solid-svg-icons';
 import {Router, RouterLink} from '@angular/router';
 import {ApiPanaderiaService} from '../../../services/apiPanaderia.service';
 import {AuthService} from '../../AuthService/AuthService';
-import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-solicitud-empleo',

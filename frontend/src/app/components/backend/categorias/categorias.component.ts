@@ -73,7 +73,7 @@ export class CategoriasComponent implements OnInit {
       this.panaderiaService.deleteCategoria(id).subscribe(
         {
           complete: () => {
-            alert('Usuario eliminado')
+            alert('Categoría eliminada')
             this.getCategorias();
           },
           error: err => {

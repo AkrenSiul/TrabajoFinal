@@ -13,6 +13,10 @@ import {
   SolicitudEmpleoDetailComponent
 } from './components/backend/solicitud-empleo/solicitud-empleo-detail/solicitud-empleo-detail.component';
 import {CategoriasComponent} from './components/backend/categorias/categorias.component';
+import {ConsultasContactoComponent} from './components/backend/consultas-contacto/consultas-contacto.component';
+import {
+  ConsultasDetailComponent
+} from './components/backend/consultas-contacto/consultas-detail/consultas-detail.component';
 
 export const routes: Routes = [
   {
@@ -67,5 +71,13 @@ export const routes: Routes = [
   {
     path: 'categorias',
     component: CategoriasComponent
+  },
+  {
+    path: 'consultas-contacto',
+    component: ConsultasContactoComponent
+  },
+  {
+    path: 'consultas-contacto/consultasDetail/:id',
+    component: ConsultasDetailComponent
   }
 ];
