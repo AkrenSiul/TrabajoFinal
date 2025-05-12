@@ -6,6 +6,7 @@
           Tienda Pan-tástico
         </a>
       </li>
+      @if(!esAdmin){
       <li class="nav-item">
         <a routerLink="/quienes-somos" class="nav-link px-2 text-white" routerLinkActive="active-link">
           Quienes somos
@@ -26,19 +27,50 @@
           Trabaja con nosotros
         </a>
       </li>
+      }
+      @if(esAdmin) {
+      <li class="nav-item">
+        <a routerLink="/userList" class="nav-link px-2 text-white" routerLinkActive="active-link">
+          Lista de usuarios
+        </a>
+      </li>
+        <li class="nav-item">
+          <a routerLink="/addProduct" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Añadir producto
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/categorias" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Categorias
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/consultas-contacto" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Consultas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/solicitudesEmpleo" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Solicitudes empleo
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/solicitudesEmpleo" class="nav-link px-2 text-white" routerLinkActive="active-link">
+            Pedidos
+          </a>
+        </li>
+      }
     </ul>
     <div class="d-flex align-items-center">
-      <a routerLink="/trabaja-nosotros" class="nav-link px-3 text-white text-center" routerLinkActive="active-link">
+      <a routerLink="/cart" class="nav-link px-3 text-white text-center" routerLinkActive="active-link">
         <fa-icon [icon]="faCart"></fa-icon>
       </a>
-      @if(!login){
+      @if(!isLoggedIn){
       <div type="button" class="btn btn-outline-light me-2" routerLink="/login" routerLinkActive="active-link">Login</div>
       }
-      <!-- Mostrar botón de cerrar sesión si el usuario está logueado -->
-      @if (login) {
-        <div type="button" class="btn btn-warning" (click)="login=false">Cerrar Sesión</div>
+      @if (isLoggedIn) {
+        <div type="button" class="btn btn-warning" (click)="logOut()">Cerrar Sesión</div>
       }
     </div>
-
   </div>
 </nav>

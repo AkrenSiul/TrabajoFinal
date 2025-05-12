@@ -24,6 +24,27 @@ class Cors extends BaseConfig
      *      maxAge: int,
      *  }
      */
+    public array $allowedOrigins = ['*'];
+
+    public array $allowedOriginsPatterns = [];
+
+    public bool $supportsCredentials = false;
+
+    public array $allowedHeaders = [
+        'Content-Type',
+    ];
+
+    public array $exposedHeaders = [];
+
+    public array $allowedMethods = [
+        'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'
+    ];
+
+    public int $maxAge = 7200;
+
+
+
+
     public array $default = [
         /**
          * Origins for the `Access-Control-Allow-Origin` header.
@@ -34,7 +55,7 @@ class Cors extends BaseConfig
          *   - ['http://localhost:8080']
          *   - ['https://www.example.com']
          */
-        'allowedOrigins' => [],
+        'allowedOrigins' => ['*'],
 
         /**
          * Origin regex patterns for the `Access-Control-Allow-Origin` header.
@@ -68,7 +89,12 @@ class Cors extends BaseConfig
          *
          * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers
          */
-        'allowedHeaders' => [],
+        'allowedHeaders' => [
+            'Content-Type',
+            'X-Requested-With',
+            'Accept',
+            'Origin'
+        ],
 
         /**
          * Set headers to expose.
@@ -93,7 +119,9 @@ class Cors extends BaseConfig
          *
          * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
          */
-        'allowedMethods' => [],
+        'allowedMethods' => [
+            'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'
+        ],
 
         /**
          * Set how many seconds the results of a preflight request can be cached.

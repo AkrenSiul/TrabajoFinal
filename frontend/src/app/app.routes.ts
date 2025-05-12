@@ -5,6 +5,18 @@ import {NuestrasTiendasComponent} from './components/nuestras-tiendas/nuestras-t
 import {QuienesSomosComponent} from './components/quienes-somos/quienes-somos.component';
 import {TrabajaConNosotrosComponent} from './components/trabaja-con-nosotros/trabaja-con-nosotros.component';
 import {LoginComponent} from './components/login/login.component';
+import {CartComponent} from './components/cart/cart.component';
+import {UserListComponent} from './components/backend/user-list/user-list.component';
+import {AddProductComponent} from './components/backend/add-product/add-product.component';
+import {SolicitudEmpleoComponent} from './components/backend/solicitud-empleo/solicitud-empleo.component';
+import {
+  SolicitudEmpleoDetailComponent
+} from './components/backend/solicitud-empleo/solicitud-empleo-detail/solicitud-empleo-detail.component';
+import {CategoriasComponent} from './components/backend/categorias/categorias.component';
+import {ConsultasContactoComponent} from './components/backend/consultas-contacto/consultas-contacto.component';
+import {
+  ConsultasDetailComponent
+} from './components/backend/consultas-contacto/consultas-detail/consultas-detail.component';
 
 export const routes: Routes = [
   {
@@ -35,5 +47,37 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+  {
+    path: 'userList',
+    component: UserListComponent
+  },
+  {
+    path: 'addProduct',
+    component: AddProductComponent
+  },
+  {
+    path: 'solicitudesEmpleo',
+    component: SolicitudEmpleoComponent
+  },
+  {
+    path: 'solicitudesEmpleo/solicitudDetail/:id',
+    component: SolicitudEmpleoDetailComponent
+  },
+  {
+    path: 'categorias',
+    component: CategoriasComponent
+  },
+  {
+    path: 'consultas-contacto',
+    component: ConsultasContactoComponent
+  },
+  {
+    path: 'consultas-contacto/consultasDetail/:id',
+    component: ConsultasDetailComponent
   }
 ];

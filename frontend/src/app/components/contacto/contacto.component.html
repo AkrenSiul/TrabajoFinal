@@ -24,22 +24,22 @@
       <div class="col-6">
         <h2 class="pb-3"><b>CONTACTA CON NOSOTROS</b></h2>
         <hr class="border-bottom-title">
-        <form [formGroup]="formContact" class="d-inline-block w-75">
+        <form [formGroup]="formContact" (ngSubmit)="enviarConsulta()" class="d-inline-block w-75">
           <div class="form-group">
-            <label class="pb-3 pt-3" for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" >
+            <label class="pb-3 pt-3 fw-bold" for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
           </div>
           <div class="form-group">
-            <label class="pb-2 pt-2" for="email">Email:</label>
-            <input type="email" class="form-control" id="email" aria-describedby="email">
+            <label class="pb-2 pt-2 fw-bold" for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
           </div>
           <div class="form-group">
-            <label class="pb-2 pt-2" for="telefono">Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" aria-describedby="telefono">
+            <label class="pb-2 pt-2 fw-bold" for="telefono">Teléfono</label>
+            <input type="text" class="form-control" id="telefono" formControlName="telefono">
           </div>
           <div class="form-group">
-            <label class="pb-2 pt-2" for="consulta">Consulta</label>
-            <textarea rows="10" class="form-control" id="consulta" aria-describedby="consulta"></textarea>
+            <label class="pb-2 pt-2 fw-bold" for="consulta">Consulta</label>
+            <textarea rows="10" class="form-control" id="consulta" formControlName="consulta"></textarea>
           </div>
           <div class="d-flex justify-content-end pt-2">
             <button class="btn btn-primary" type="submit">Enviar Consulta</button>

@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <form [formGroup]="formProducto" (ngSubmit)="guardarProducto()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input id="nombre" type="text" formControlName="nombre" class="form-control" (input)="actualizarVistaPrevia()">
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <input id="descripcion" type="text" formControlName="descripcion" class="form-control" (input)="actualizarVistaPrevia()">
+        </div>
+
+        <div class="mb-3">
+          <label for="precio" class="form-label">Precio</label>
+          <input id="precio" type="number" formControlName="precio" class="form-control" (input)="actualizarVistaPrevia()">
+        </div>
+
+        <div class="mb-3">
+          <label for="stock" class="form-label">Stock</label>
+          <input id="stock" type="number" formControlName="stock" class="form-control" (input)="actualizarVistaPrevia()">
+        </div>
+
+        <div class="mb-3">
+          <label for="imagen_url" class="form-label">Imagen</label>
+          <input type="file" class="form-control" id="imagen_url"
+                 (change)="onFileSelected($event)"
+                 accept=".jpg,.jpeg,.png">
+        </div>
+        <div class="mb-3">
+          <label for="categoria" class="form-label">Categoría</label>
+          <select id="categoria" class="form-select" formControlName="categoria_id" (change)="actualizarVistaPrevia()">
+            <option [ngValue]="null" disabled>Seleccione una categoría</option>
+            @for(categoria of categorias; track categoria.id){
+            <option [ngValue]="categoria.id">{{ categoria.nombre }}</option>
+            }
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Guardar producto</button>
+      </form>
+    </div>
+
+    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+      <div class="card" style="width: 18rem;">
+        <img *ngIf="vistaPrevia.imagenUrl" [src]="vistaPrevia.imagenUrl" class="card-img-top" alt="Imagen previa">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ vistaPrevia.nombre }}</h5>
+          <div class="d-flex justify-content-center">
+          <p class="badge bg-primary">{{ vistaPrevia.categoria }}</p>
+          </div>
+          <p class="card-text text-center">{{ vistaPrevia.descripcion }}</p>
+          <p class="card-text text-center"><strong>{{ vistaPrevia.precio }}</strong></p>
+          <p class="card-text text-center">Stock: {{ vistaPrevia.stock }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

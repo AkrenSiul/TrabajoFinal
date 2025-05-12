@@ -1,1 +1,32 @@
-<p>cart works!</p>
+@if(productosCarrito$ | async) {
+<div >
+  <h2>Tu carrito</h2>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Total</th>
+      <th>Acción</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for(productos of productosCarrito$ | async; track $index) {
+    <tr>
+      <td>{{ productos.nombre }}</td>
+      <td>{{ productos.precio | currency:'EUR' }}</td>
+      <td>{{ productos.cantidad }}</td>
+      <td>{{ productos.precio * productos.cantidad! | currency:'EUR' }}</td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="eliminarProducto(productos.id)">Eliminar</button>
+      </td>
+    </tr>
+    }
+    </tbody>
+  </table>
+  <button class="btn btn-success" (click)="guardarPedido()">Finalizar pedido</button>
+</div>
+} @else {
+  <h4>No hay productos en el carrito.</h4>
+}

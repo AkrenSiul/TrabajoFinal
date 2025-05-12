@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators, FormControl, FormGroup } from '@angular/forms';
+import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
 
 @Component({
   selector: 'app-trabaja-con-nosotros',
@@ -9,6 +10,7 @@ import { FormBuilder, ReactiveFormsModule, Validators, FormControl, FormGroup } 
   styleUrl: './trabaja-con-nosotros.component.css'
 })
 export class TrabajaConNosotrosComponent {
+  private readonly panaderiaService = inject(ApiPanaderiaService);
 
   formContact = new FormGroup({
     nombre: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
@@ -39,12 +41,22 @@ export class TrabajaConNosotrosComponent {
       formData.append('email', this.formContact.value.email!);
       formData.append('mensaje', this.formContact.value.mensaje!);
       if (this.formContact.value.cv) {
-        formData.append('cv', this.formContact.value.cv);
+        formData.append('cv_archivo', this.formContact.value.cv);
       }
 
       console.log('Datos listos para enviar al backend:', formData);
 
-      // Aquí puedes hacer un POST al backend con HttpClient
+      this.panaderiaService.postSolicitudEmpleo(formData).subscribe(
+        {
+          complete: () => {
+            alert('Solicitud empleo enviada');
+            this.formContact.reset();
+          },
+          error: err => {
+            console.log(err);
+          }
+        }
+      )
     }
   }
 }

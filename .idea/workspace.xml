@@ -6,14 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/test-service.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/common/productos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/common/productos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/categorias/categorias.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/categorias/categorias.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/solicitud-empleo/solicitud-empleo-detail/solicitud-empleo-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/solicitud-empleo/solicitud-empleo-detail/solicitud-empleo-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/solicitud-empleo/solicitud-empleo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/solicitud-empleo/solicitud-empleo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/solicitud-empleo/solicitud-empleo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/solicitud-empleo/solicitud-empleo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/user-list/user-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/user-list/user-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/user-list/user-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/user-list/user-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/inicio/inicio.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/services/apiPanaderia.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/services/apiPanaderia.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,7 +45,6 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2uWvRKOoojXoZ1Rjn5eGUyAOENJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -34,7 +53,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/addBehaviorsubjectLogin&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Lluis/WebstormProjects/PanaderiaOnline/frontend/public/assets&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -49,15 +68,18 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Lluis\WebstormProjects\PanaderiaOnline\frontend\public\assets" />
+      <recent name="C:\Users\Lluis\WebstormProjects\PanaderiaOnline\frontend\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lluis\WebstormProjects\PanaderiaOnline\frontend\src\app\components\backend" />
+      <recent name="C:\Users\Lluis\WebstormProjects\PanaderiaOnline\frontend" />
       <recent name="C:\Users\Lluis\WebstormProjects\PanaderiaOnline\frontend\public\assets" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-WS-243.24978.60" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
       </set>
     </attachedChunks>
   </component>
@@ -109,6 +131,34 @@
       <workItem from="1745056378797" duration="2032000" />
       <workItem from="1745141237007" duration="2238000" />
       <workItem from="1745227428093" duration="2888000" />
+      <workItem from="1745236890910" duration="1677000" />
+      <workItem from="1745605099080" duration="52000" />
+      <workItem from="1745661364042" duration="1507000" />
+      <workItem from="1745688921843" duration="2330000" />
+      <workItem from="1745743212036" duration="3819000" />
+      <workItem from="1745942747031" duration="3684000" />
+      <workItem from="1746028763681" duration="6229000" />
+      <workItem from="1746089406060" duration="11892000" />
+      <workItem from="1746205791817" duration="419000" />
+      <workItem from="1746265550602" duration="1353000" />
+      <workItem from="1746288068657" duration="3957000" />
+      <workItem from="1746304072628" duration="406000" />
+      <workItem from="1746358716823" duration="3000000" />
+      <workItem from="1746376787996" duration="975000" />
+      <workItem from="1746462543165" duration="5916000" />
+      <workItem from="1746548474710" duration="2257000" />
+      <workItem from="1746636497665" duration="4410000" />
+      <workItem from="1746722285859" duration="4198000" />
+      <workItem from="1746809808595" duration="1488000" />
+      <workItem from="1746813830687" duration="170000" />
+      <workItem from="1746857371497" duration="5328000" />
+      <workItem from="1746871832817" duration="5719000" />
+      <workItem from="1746889947838" duration="12032000" />
+      <workItem from="1746949128443" duration="14841000" />
+      <workItem from="1746981364570" duration="1129000" />
+      <workItem from="1746983445191" duration="5760000" />
+      <workItem from="1747057035689" duration="2715000" />
+      <workItem from="1747064895736" duration="5062000" />
     </task>
     <servers />
   </component>

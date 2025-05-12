@@ -41,3 +41,16 @@
 .max-width {
   max-width: 80%;
 }
+.img-fluid {
+  height: 120px;
+}
+.btn {
+  padding: 8px !important;
+}
+.min-vh-50 {
+  min-height: 50vh;
+}
+.btn-outline {
+  border: 1px solid grey;
+  padding: 12px;
+}

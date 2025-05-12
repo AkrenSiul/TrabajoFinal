@@ -1,0 +1,67 @@
+INFO - 2025-04-27 08:41:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 08:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 08:42:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 08:43:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 08:52:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 08:55:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 08:57:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:04:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:10:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-04-27 09:16:39 --> CodeIgniter\Filters\Exceptions\FilterException: "Config\Cors" must implement CodeIgniter\Filters\FilterInterface.
+[Method: GET, Route: api/test]
+in SYSTEMPATH/Filters/Filters.php on line 200.
+ 1 SYSTEMPATH/Filters/Filters.php(200): CodeIgniter\Filters\Exceptions\FilterException::forIncorrectInterface('Config\\Cors')
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/test', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 09:16:47 --> CodeIgniter\Filters\Exceptions\FilterException: "Config\Cors" must implement CodeIgniter\Filters\FilterInterface.
+[Method: POST, Route: api/login]
+in SYSTEMPATH/Filters/Filters.php on line 200.
+ 1 SYSTEMPATH/Filters/Filters.php(200): CodeIgniter\Filters\Exceptions\FilterException::forIncorrectInterface('Config\\Cors')
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/login', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 09:19:41 --> CodeIgniter\Filters\Exceptions\FilterException: "Config\Cors" must implement CodeIgniter\Filters\FilterInterface.
+[Method: POST, Route: api/login]
+in SYSTEMPATH/Filters/Filters.php on line 200.
+ 1 SYSTEMPATH/Filters/Filters.php(200): CodeIgniter\Filters\Exceptions\FilterException::forIncorrectInterface('Config\\Cors')
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/login', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 09:19:48 --> CodeIgniter\Filters\Exceptions\FilterException: "Config\Cors" must implement CodeIgniter\Filters\FilterInterface.
+[Method: GET, Route: api/test]
+in SYSTEMPATH/Filters/Filters.php on line 200.
+ 1 SYSTEMPATH/Filters/Filters.php(200): CodeIgniter\Filters\Exceptions\FilterException::forIncorrectInterface('Config\\Cors')
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/test', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-04-27 09:20:15 --> CodeIgniter\Filters\Exceptions\FilterException: "Config\Cors" must implement CodeIgniter\Filters\FilterInterface.
+[Method: GET, Route: api/test]
+in SYSTEMPATH/Filters/Filters.php on line 200.
+ 1 SYSTEMPATH/Filters/Filters.php(200): CodeIgniter\Filters\Exceptions\FilterException::forIncorrectInterface('Config\\Cors')
+ 2 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 3 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/test', 'before')
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-04-27 09:21:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:23:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:28:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:29:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-04-27 09:36:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

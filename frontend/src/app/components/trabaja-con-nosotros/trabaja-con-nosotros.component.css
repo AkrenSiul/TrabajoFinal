@@ -1,6 +1,15 @@
 .bg-blue {
   background-color: rgb(255, 237, 215, 0.6);
 }
-.vh-50 {
-  height: 50vh;
+.vh-60 {
+  height: 60vh;
+}
+.w-40 {
+  width: 40%;
+}
+.w-20 {
+  width: 20%;
+}
+.object-fit-cover {
+  object-fit: cover;
 }
