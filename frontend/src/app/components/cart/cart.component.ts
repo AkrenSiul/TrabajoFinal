@@ -53,10 +53,14 @@ export class CartComponent {
     });
   }
   actualizarCantidad(id: string, cantidad: number) {
-    const producto = this.cartService.getCart().find(p => p.id === id);
-    if (producto) {
-      producto.cantidad = cantidad;
-      this.cartService.addProduct(producto);
+    if (cantidad < 1) {
+      this.eliminarProducto(id);
+      return;
+    }
+    const productoExistente = this.cartService.getCart().find(p => p.id === id);
+    if (productoExistente) {
+      const nuevoProducto = {...productoExistente, cantidad};
+      this.cartService.addProduct(nuevoProducto);
     }
   }
 }

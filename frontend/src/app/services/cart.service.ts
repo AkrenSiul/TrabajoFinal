@@ -15,21 +15,23 @@ export class CartService {
   cartSize$ = this.cartSizeSubject.asObservable();
   cartPrice$ = this.cartPriceSubject.asObservable();
 
-  addProduct(producto: InterfaceProductos) {
-    const index = this.cart.findIndex(p => p.id === producto.id);
-    let carritoTotal = this.cartPriceSubject.value;
-    let carritoSize = this.cartSizeSubject.value;
-    if (index !== -1) {
-      this.cart[index].cantidad! += producto.cantidad || 1;
-    } else {
-      this.cart.push({ ...producto });
+    addProduct(producto: InterfaceProductos) {
+      const index = this.cart.findIndex(p => p.id === producto.id);
+
+      if (index !== -1) {
+        this.cart[index].cantidad = producto.cantidad!;
+      } else {
+        this.cart.push({ ...producto });
+      }
+
+      this.cartSubject.next(this.cart);
+
+      const total = this.cart.reduce((sum, p) => sum + p.precio * (p.cantidad || 1), 0);
+      const size = this.cart.length;
+
+      this.cartPriceSubject.next(total);
+      this.cartSizeSubject.next(size);
     }
-    this.cartSubject.next(this.cart);
-    carritoTotal += producto.precio * (producto.cantidad || 1);
-    this.cartPriceSubject.next(carritoTotal);
-    carritoSize = this.cart.length;
-    this.cartSizeSubject.next(carritoSize);
-  }
 
   getCart(): InterfaceProductos[] {
     return [...this.cart];

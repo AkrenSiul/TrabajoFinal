@@ -1,32 +1,57 @@
 @if(productosCarrito$ | async) {
-<div >
-  <h2>Tu carrito</h2>
-  <table class="table table-bordered table-hover">
-    <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Precio</th>
-      <th>Cantidad</th>
-      <th>Total</th>
-      <th>Acción</th>
-    </tr>
-    </thead>
-    <tbody>
-    @for(productos of productosCarrito$ | async; track $index) {
-    <tr>
-      <td>{{ productos.nombre }}</td>
-      <td>{{ productos.precio | currency:'EUR' }}</td>
-      <td>{{ productos.cantidad }}</td>
-      <td>{{ productos.precio * productos.cantidad! | currency:'EUR' }}</td>
-      <td>
-        <button class="btn btn-danger btn-sm" (click)="eliminarProducto(productos.id)">Eliminar</button>
-      </td>
-    </tr>
-    }
-    </tbody>
-  </table>
-  <button class="btn btn-success" (click)="guardarPedido()">Finalizar pedido</button>
-</div>
+  <div class="card m-4 shadow">
+    <div class="card-header text-center">
+      <h4 class="mb-0 fw-bold">Carrito Panadería</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover text-center">
+        <thead class="table-light">
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for(producto of productosCarrito$ | async; track $index) {
+        <tr>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.precio | currency:'EUR' }}</td>
+          <td>
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-sm btn-outline-secondary me-2"
+                      (click)="actualizarCantidad(producto.id, producto.cantidad! - 1)" [disabled]="producto.cantidad! <= 1">
+                -
+              </button>
+              <span>{{ producto.cantidad }}</span>
+              <button class="btn btn-sm btn-outline-secondary ms-2"
+                      (click)="actualizarCantidad(producto.id, producto.cantidad! + 1)">
+                +
+              </button>
+            </div>
+          </td>
+          <td>{{ (producto.precio * (producto.cantidad || 1)) | currency:'EUR' }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="eliminarProducto(producto.id)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+        }
+          </tbody>
+      </table>
+
+      <div class="mt-4 d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Total: </strong>
+          <span>{{ cartPrice$ | async | currency:'EUR' }}</span>
+        </div>
+        <button class="btn btn-success" (click)="guardarPedido()">Guardar Pedido</button>
+      </div>
+    </div>
+  </div>
 } @else {
   <h4>No hay productos en el carrito.</h4>
 }
