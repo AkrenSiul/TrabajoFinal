@@ -27,6 +27,10 @@ export class CartComponent {
     this.cartSize$ = this.cartService.cartSize$;
     this.cartPrice$ = this.cartService.cartPrice$;
   }
+  getStockDisponible(producto: InterfaceProductos): number {
+    const enCarrito = producto.cantidad || 0;
+    return producto.stock - enCarrito;
+  }
 
   eliminarProducto(id: string) {
     this.cartService.removeProduct(id);

@@ -36,12 +36,6 @@ export class CartService {
   getCart(): InterfaceProductos[] {
     return [...this.cart];
   }
-  clearCart() {
-    this.cart = [];
-    this.cartSubject.next(this.cart);
-    this.cartSizeSubject.next(0);
-    this.cartPriceSubject.next(0);
-  }
 
   removeProduct(id: string): void {
     const productToRemove = this.cart.find(p => p.id === id);

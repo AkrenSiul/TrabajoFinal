@@ -37,6 +37,9 @@ export class InicioComponent implements OnInit{
   admin = false;
   categorias: any;
   categoriaSeleccionada: number | null = null;
+  protected readonly faEdit = faEdit;
+  protected readonly faCartPlus = faCartPlus;
+  protected readonly faTrash = faTrash;
   cartItems: { [productoId: string]: number } = {};
   formProduct: FormGroup = this.formBuilder.group(
     {
@@ -48,10 +51,12 @@ export class InicioComponent implements OnInit{
       categoria_id: [null, Validators.required],
     }
   )
-
+  getStockDisponible(producto: InterfaceProductos): number {
+    const enCarrito = this.cartService.getCart().find(p => p.id === producto.id)?.cantidad || 0;
+    return producto.stock - enCarrito;
+  }
 
   constructor() {
-    this.getTest();
     this.getProductos();
     this.getCategoria();
   }
@@ -62,20 +67,6 @@ export class InicioComponent implements OnInit{
       }
     )
 
-  }
-
-
-  getTest() {
-    this.productService.getTest().subscribe(
-      {
-        next: value => {
-          console.log(value);
-        },
-        error: err => {
-          console.log(err.message);
-        }
-      }
-    )
   }
 
   getProductos(categoriaId: number | null = null) {
@@ -184,7 +175,6 @@ export class InicioComponent implements OnInit{
     });
   }
 
-
   getCategoria() {
     this.productService.getCategorias().subscribe(
       {
@@ -201,8 +191,4 @@ export class InicioComponent implements OnInit{
   onCategoriaChange(categoriaId: number | null) {
     this.getProductos(categoriaId);
   }
-
-  protected readonly faEdit = faEdit;
-  protected readonly faCartPlus = faCartPlus;
-  protected readonly faTrash = faTrash;
 }

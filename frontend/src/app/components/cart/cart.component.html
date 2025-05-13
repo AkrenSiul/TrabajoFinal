@@ -20,14 +20,17 @@
           <td>{{ producto.nombre }}</td>
           <td>{{ producto.precio | currency:'EUR' }}</td>
           <td>
+            <div class="text-muted small">
+              Stock disponible: {{ getStockDisponible(producto) }}
+            </div>
             <div class="d-flex justify-content-center align-items-center">
               <button class="btn btn-sm btn-outline-secondary me-2"
-                      (click)="actualizarCantidad(producto.id, producto.cantidad! - 1)" [disabled]="producto.cantidad! <= 1">
+                      (click)="actualizarCantidad(producto.id, producto.cantidad! - 1)">
                 -
               </button>
               <span>{{ producto.cantidad }}</span>
               <button class="btn btn-sm btn-outline-secondary ms-2"
-                      (click)="actualizarCantidad(producto.id, producto.cantidad! + 1)">
+                      (click)="actualizarCantidad(producto.id, producto.cantidad! + 1)" [disabled]="getStockDisponible(producto) === 0">
                 +
               </button>
             </div>

@@ -64,7 +64,7 @@
               <p class="card-text m-0">{{ producto.precio | currency: 'EUR' }}</p>
               <p class="m-0">
             <span class="badge text-dark p-2">
-                Stock disponible: {{ producto.stock - (cartItems[producto.id] || 0) }}
+                Stock disponible: {{ getStockDisponible(producto) }}
             </span>
               </p>
             </div>
