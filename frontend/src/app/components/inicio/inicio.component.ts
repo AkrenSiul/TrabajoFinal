@@ -6,7 +6,7 @@ import {InterfaceProductos} from '../../common/productos';
 import {AuthService} from '../AuthService/AuthService';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
 import {faEdit} from '@fortawesome/free-solid-svg-icons/faEdit';
-import {CurrencyPipe} from '@angular/common';
+import {CurrencyPipe, NgClass} from '@angular/common';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
 import {CartService} from '../../services/cart.service';
@@ -20,6 +20,7 @@ import {CartService} from '../../services/cart.service';
     ReactiveFormsModule,
     CurrencyPipe,
     FormsModule,
+    NgClass,
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
