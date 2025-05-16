@@ -16,18 +16,38 @@ class PedidoController extends ResourceController
     public function getPedidos()
     {
         $usuarioId = $this->request->getGet('usuario_id');
+        $detallePedidoModel = new DetallePedidoModel();
+        $productoModel = new ProductoModel();
 
+        $productos = $productoModel->findAll();
+        $mapProductos = [];
+        foreach ($productos as $producto) {
+            $mapProductos[$producto['id']] = $producto;
+        }
         if ($usuarioId) {
             $pedidos = $this->model->where('usuario_id', $usuarioId)->findAll();
-            if (empty($pedidos)) {
-                return $this->failNotFound('No hay pedidos para este usuario');
-            }
-            return $this->respond($pedidos);
+        } else {
+            $pedidos = $this->model->findAll();
         }
 
-        $pedidos = $this->model->findAll();
+        if (empty($pedidos)) {
+            return $this->failNotFound('No hay pedidos' . ($usuarioId ? ' para este usuario' : ''));
+        }
+
+        foreach ($pedidos as &$pedido) {
+            $detalles = $detallePedidoModel->where('pedido_id', $pedido['id'])->findAll();
+
+            foreach ($detalles as &$detalle) {
+                $producto = $mapProductos[$detalle['producto_id']] ?? null;
+                $detalle['producto'] = $producto ? $producto['nombre'] : 'Producto no disponible';
+            }
+
+            $pedido['detalles'] = $detalles;
+        }
+
         return $this->respond($pedidos);
     }
+
     public function getPedido($usuario_id)
     {
         $pedido = $this->model->where('usuario_id', $usuario_id)->first();
