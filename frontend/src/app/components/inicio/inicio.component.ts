@@ -1,6 +1,5 @@
 import {Component, inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbCarousel, NgbModal, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
 import {InterfaceProductos} from '../../common/productos';
 import {AuthService} from '../AuthService/AuthService';
@@ -10,6 +9,7 @@ import {CurrencyPipe, NgClass} from '@angular/common';
 import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
 import {CartService} from '../../services/cart.service';
+import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
 
 @Component({
   selector: 'app-inicio',
@@ -28,7 +28,7 @@ import {CartService} from '../../services/cart.service';
 export class InicioComponent implements OnInit{
   @ViewChild('modalEditar', { static: true }) modalEditar!: TemplateRef<any>;
   private readonly cartService = inject(CartService);
-  private readonly productService: ApiPanaderiaService = inject(ApiPanaderiaService);
+  private readonly productService = inject(ApiPanaderiaService);
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private authService = inject(AuthService);
   private modalService = inject(NgbModal)
