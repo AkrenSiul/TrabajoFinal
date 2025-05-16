@@ -1,1 +1,42 @@
-<p>pedidos-admin works!</p>
+<div class="container">
+  <h2>Gestión de Pedidos</h2>
+
+  <div *ngIf="pedidoDetalles.length === 0">
+    <p>No hay pedidos disponibles.</p>
+  </div>
+
+  <div *ngFor="let pedido of pedidoDetalles; let i = index" class="pedido-card">
+    <h3>Pedido #{{ pedido.id }}</h3>
+    <p><strong>Fecha:</strong> {{ pedido.fecha_pedido | date: 'yy/MM/dd' }}</p>
+    <p><strong>Total:</strong> {{ pedido.total  }}</p>
+
+    <div>
+      <label for="estado">Estado:</label>
+      <select [(ngModel)]="pedido.estado" (change)="actualizarEstado(pedido)" class="form-select">
+        <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+      </select>
+    </div>
+
+    <button (click)="eliminarPedido(pedido.id)" class="btn btn-danger mt-2">Eliminar Pedido</button>
+
+    <div class="detalles mt-3">
+      <h4>Productos:</h4>
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio unidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let detalle of pedido.detalles">
+          <td>{{ detalle.producto }}</td>
+          <td>{{ detalle.cantidad }}</td>
+          <td>{{ detalle.precio_unidad }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

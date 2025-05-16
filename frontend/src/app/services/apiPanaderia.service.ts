@@ -119,6 +119,10 @@ export class ApiPanaderiaService {
 
   // PEDIDOS
 
+  getPedidos(): Observable<any> {
+    return this.http.get(this.API_URL+'pedidos', {headers: this.headers})
+  }
+
   getPedido(usuarioID: string): Observable<any> {
     return this.http.get(this.API_URL+'pedidos/'+usuarioID, {headers: this.headers});
   }
@@ -128,6 +132,14 @@ export class ApiPanaderiaService {
   }
   createPedido(pedidoData: {usuario_id: string, fecha_pedido: string, estado: string, total: number}): Observable<any> {
     return this.http.post(this.API_URL + 'pedidos', pedidoData, {headers: this.headers});
+  }
+
+  updatePedido(id: string, data: any) {
+    return this.http.put(this.API_URL + 'pedidos/' + id, data, {headers: this.headers});
+  }
+
+  deletePedido(id: string) {
+    return this.http.delete(this.API_URL + 'pedidos/' + id, {headers: this.headers});
   }
 
   // DETALLE PEDIDOS
