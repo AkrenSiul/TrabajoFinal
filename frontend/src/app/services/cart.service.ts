@@ -51,4 +51,10 @@ export class CartService {
       this.cartPriceSubject.next(carritoTotal);
     }
   }
+  clearCart(): void {
+    this.cart = [];
+    this.cartSubject.next([]);
+    this.cartSizeSubject.next(0);
+    this.cartPriceSubject.next(0);
+  }
 }

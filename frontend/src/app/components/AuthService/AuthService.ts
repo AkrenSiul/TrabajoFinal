@@ -11,12 +11,7 @@ export class AuthService {
 
   loginOn$ = this.loginOnSubject.asObservable();
   isAdmin$ = this.isAdminSubject.asObservable();
-  isSuperAdmin$ = this.isSuperAdminSubject.asObservable();
 
-  private getSuperAdminFromStorage() {
-    const rol = localStorage.getItem('rol');
-    return rol === 'superadmin';
-}
 
   private getLoginFromStorage(): boolean {
     return localStorage.getItem('loginOn') === 'true';
@@ -27,11 +22,12 @@ export class AuthService {
     return rol === 'admin' || rol === 'superadmin';
   }
 
-  login(usuario: string, rol: string, email?: string) {
+  login(usuario: string, rol: string, id: string,  email?: string) {
     localStorage.setItem('loginOn', 'true');
     localStorage.setItem('usuario', usuario);
     localStorage.setItem('rol', rol);
     if (email) localStorage.setItem('email', email);
+    localStorage.setItem('id', id)
 
     this.loginOnSubject.next(true);
     this.isAdminSubject.next(this.getAdminFromStorage());
@@ -42,6 +38,7 @@ export class AuthService {
     localStorage.removeItem('usuario');
     localStorage.removeItem('rol');
     localStorage.removeItem('email');
+    localStorage.removeItem('id');
 
     this.loginOnSubject.next(false);
     this.isAdminSubject.next(false);
@@ -52,6 +49,7 @@ export class AuthService {
     const usuario = localStorage.getItem('usuario');
     const rol = localStorage.getItem('rol');
     const email = localStorage.getItem('email');
-    return { usuario, rol, email };
+    const id = localStorage.getItem('id');
+    return { usuario, rol, email, id };
   }
 }

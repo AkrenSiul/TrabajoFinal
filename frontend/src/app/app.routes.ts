@@ -17,6 +17,7 @@ import {ConsultasContactoComponent} from './components/backend/consultas-contact
 import {
   ConsultasDetailComponent
 } from './components/backend/consultas-contacto/consultas-detail/consultas-detail.component';
+import {AllPedidosComponent} from './components/all-pedidos/all-pedidos.component';
 
 export const routes: Routes = [
   {
@@ -79,5 +80,9 @@ export const routes: Routes = [
   {
     path: 'consultas-contacto/consultasDetail/:id',
     component: ConsultasDetailComponent
+  },
+  {
+    path: 'pedidosUsuario',
+    component: AllPedidosComponent
   }
 ];

@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Mis Pedidos</h2>
+@if(pedidoDetalles.length === 0){
+  <div>
+    <p>No tienes pedidos.</p>
+  </div>
+}
+@for(pedido of pedidoDetalles; track $index){
+  <div class="pedido-card">
+    <h3>Pedido #{{ pedido.id }}</h3>
+    <p><strong>Fecha:</strong> {{ pedido.fecha_pedido | date: 'yy/MM/dd' }}</p>
+    <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+    <p><strong>Total:</strong> {{ pedido.total }}</p>
+
+    <div class="detalles">
+      <h4>Productos:</h4>
+      <table>
+        <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio unidad</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for(detalle of pedido.detalles; track $index) {
+            <tr >
+              <td>{{ detalle.producto }}</td>
+              <td>{{ detalle.cantidad }}</td>
+              <td>{{ detalle.precio_unidad }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+}
+</div>

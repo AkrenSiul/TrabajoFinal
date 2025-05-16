@@ -49,7 +49,7 @@ export class InicioComponent implements OnInit{
       imagen_url: [''],
       precio: [0],
       stock: [0],
-      categoria_id: [null, Validators.required],
+      categoria_id: [],
     }
   )
   getStockDisponible(producto: InterfaceProductos): number {
@@ -111,11 +111,17 @@ export class InicioComponent implements OnInit{
   edit() {
     if (this.formProduct.valid && this.editandProducto) {
       const formData = new FormData();
+
       formData.append('nombre', this.formProduct.get('nombre')?.value || 'Ejemplo Test');
       formData.append('descripcion', this.formProduct.get('descripcion')?.value || 'Ejemplo Test');
       formData.append('precio', this.formProduct.get('precio')?.value || 24);
       formData.append('stock', this.formProduct.get('stock')?.value || 24);
-      formData.append('categoria_id', this.formProduct.get('categoria_id')?.value);
+
+      const categoriaValue = this.formProduct.get('categoria_id')?.value;
+      if (categoriaValue !== null && categoriaValue !== undefined && categoriaValue !== '') {
+        formData.append('categoria_id', categoriaValue.toString());
+      }
+
       if (this.selectedFile) {
         formData.append('imagen_url', this.selectedFile);
       }

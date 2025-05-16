@@ -83,6 +83,7 @@ export class UserListComponent implements OnInit {
         {
           complete: () => {
             alert('Usuario eliminado')
+            this.getUsuarios();
           },
           error: err => {
             console.log(err.err.message);

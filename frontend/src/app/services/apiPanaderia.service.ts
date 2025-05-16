@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {InterfaceProductos} from '../common/productos';
+import {InterfacePedidoDetalles} from '../common/pedido-detalles';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,6 @@ export class ApiPanaderiaService {
   }
   getUsuarios(): Observable<any> {
     return this.http.get(this.API_URL+'usuarios', {headers: this.headers})
-  }
-  getUsuario(): Observable<any> {
-    return this.http.get(this.API_URL+'usuario', {headers: this.headers});
   }
   deleteUsuarios(id: string): Observable<any> {
     return this.http.delete(this.API_URL+'usuario/delete/'+id, {headers: this.headers});
@@ -119,10 +117,24 @@ export class ApiPanaderiaService {
     return this.http.delete(this.API_URL+'consultas-contacto/'+id);
   }
 
+  // PEDIDOS
+
+  getPedido(usuarioID: string): Observable<any> {
+    return this.http.get(this.API_URL+'pedidos/'+usuarioID, {headers: this.headers});
+  }
+  getPedidosDetalles(usuarioID: string): Observable<InterfacePedidoDetalles[]> {
+    const url = `${this.API_URL}pedidos/detalles-usuario?usuario_id=${usuarioID}`;
+    return this.http.get<InterfacePedidoDetalles[]>(url, { headers: this.headers });
+  }
+  createPedido(pedidoData: {usuario_id: string, fecha_pedido: string, estado: string, total: number}): Observable<any> {
+    return this.http.post(this.API_URL + 'pedidos', pedidoData, {headers: this.headers});
+  }
+
+
   // DETALLE PEDIDOS
 
   postDetallePedidos(pedido: any) {
-    return this.http.post(this.API_URL, pedido);
+    return this.http.post(this.API_URL+'detalle-pedidos', pedido);
   }
 
 }

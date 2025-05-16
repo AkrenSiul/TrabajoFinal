@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
       this.testService.postLogin(usuario, contrasenya).subscribe({
         next: value => {
-          this.authService.login(value.usuario.usuario, value.usuario.rol, value.usuario.email);
+          this.authService.login(value.usuario.usuario, value.usuario.rol,value.usuario.id, value.usuario.email);
           this.mensaje = `Bienvenido, ` + value.usuario.usuario;
           this.router.navigateByUrl('/inicio');
         },
@@ -63,10 +63,6 @@ export class LoginComponent implements OnInit {
   }
 
   registroModal() {
-    if (!this.registroTemplate) {
-      console.warn('registroTemplate aún no está disponible');
-      return;
-    }
     this.isRegisterOn = true;
     this.mensaje = '';
     this.addRegisterFields();
