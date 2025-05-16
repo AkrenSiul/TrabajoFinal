@@ -9,5 +9,5 @@ class SolicitudEmpleoModel extends Model
     protected $table      = 'solicitudes_empleo';
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['nombre', 'email', 'mensaje', 'cv_nombre', 'cv_archivo', 'fecha_envio'];
+    protected $allowedFields = ['nombre', 'email', 'mensaje', 'cv_archivo', 'fecha_envio'];
 }

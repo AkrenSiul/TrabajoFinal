@@ -33,22 +33,11 @@ class UsuarioController extends ResourceController
             return $this->failUnauthorized('Contraseña incorrecta');
         }
 
-
-        // FUNCIONA
-        /*
-        $this->session->set('usuario', [
-            'id' => $user['id'],
-            'usuario' => $user['usuario'],
-            'rol' => $user['rol']
-        ]);
-        return $this->respond($this->session->get('usuario'));
-        */
-
-        // Obtener los datos de todo lo que contiene.
         $data = [
             'id' => $user['id'],
             'usuario' => $user['usuario'],
-            'rol' => $user['rol']
+            'rol' => $user['rol'],
+            'email' => $user['email']
         ];
         return $this->respond(['usuario' => $data]);
     }
@@ -63,12 +52,15 @@ class UsuarioController extends ResourceController
         if($this->model->getUserByUsuario($data['usuario'])) {
             return $this->failResourceExists('El usuario ya existe');
         }
+
+        $rol = isset($data['rol']) && !empty($data['rol']) ? $data['rol'] : 'usuario';
+
         $this->model->save(
             [
                 'usuario' => $data['usuario'],
                 'contrasenya' => password_hash($data['contrasenya'], PASSWORD_DEFAULT),
                 'email' => $data['email'] | '',
-                'rol' => 'usuario',
+                'rol' => $rol,
             ]
         );
         return $this->respondCreated(['mensaje' => 'Usuario registrado']);
@@ -80,7 +72,6 @@ class UsuarioController extends ResourceController
         return $this->respond(['mensaje' => 'Sesión cerrada. Nos vemos']);
     }
 
-    // El usuario que usamos
     public function usuario()
     {
         $user = $this->session->get('usuario');
@@ -91,7 +82,6 @@ class UsuarioController extends ResourceController
         return $this->respond(['usuario' => $user]);
     }
 
-    // Lista de usuarios
     public function getUsuarios() {
         $usuarios = $this->model->findAll();
 

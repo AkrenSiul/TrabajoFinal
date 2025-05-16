@@ -128,21 +128,28 @@ class ProductoController extends ResourceController
     {
         helper(['form']);
 
+        $productoActual = $this->model->find($id);
+        if (!$productoActual) {
+            return $this->failNotFound('Producto no encontrado');
+        }
+
         $validationRules = [
             'nombre'      => 'required|max_length[255]|min_length[3]',
             'descripcion' => 'required|max_length[1000]|min_length[10]',
             'precio'      => 'required|numeric',
             'stock'       => 'required|integer',
-            'categoria_id'  => 'required|integer',
-            'imagen_url'  => 'if_exist|is_image[imagen_url]',
+            'categoria_id'  => 'permit_empty|integer',
+            'imagen_url'  => 'permit_empty|is_image[imagen_url]',
         ];
+
+        $categoriaIdPost = $this->request->getPost('categoria_id');
 
         $dataPost = [
             'nombre'      => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
             'precio'      => $this->request->getPost('precio'),
             'stock'       => $this->request->getPost('stock'),
-            'categoria_id'  => $this->request->getPost('categoria_id'),
+            'categoria_id'  => $categoriaIdPost !== null ? $categoriaIdPost : $productoActual['categoria_id'],
         ];
 
         if (! $this->validateData($dataPost, $validationRules)) {
@@ -150,7 +157,6 @@ class ProductoController extends ResourceController
         }
 
         $data = $this->validator->getValidated();
-
 
         $imagen = $this->request->getFile('imagen_url');
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {

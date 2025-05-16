@@ -1,1 +1,491 @@
 INFO - 2025-05-11 07:53:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 07:59:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 08:02:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 08:06:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 09:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 09:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 09:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 09:48:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 09:48:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 10:02:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 10:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-11 10:07:43 --> CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+[Method: GET, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Format/JSONFormatter.php on line 45.
+ 1 SYSTEMPATH/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8 characters, possibly incorrectly encoded')
+ 2 SYSTEMPATH/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format([...])
+ 3 SYSTEMPATH/API/ResponseTrait.php(103): CodeIgniter\RESTful\ResourceController->format([...])
+ 4 APPPATH/Controllers/SolicitudEmpleoController.php(27): CodeIgniter\RESTful\ResourceController->respond([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->getSolicitudEmpleos()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 10:07:43 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded in /var/www/html/system/Format/JSONFormatter.php:45
+Stack trace:
+#0 /var/www/html/system/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /var/www/html/system/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /var/www/html/system/API/ResponseTrait.php(103): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 /var/www/html/system/Debug/ExceptionHandler.php(83): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 /var/www/html/system/Debug/Exceptions.php(163): CodeIgniter\Debug\ExceptionHandler->handle(Object(CodeIgniter\Format\Exceptions\FormatException), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Format\Exceptions\FormatException))
+#6 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Format\Exceptions\FormatException
+Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+#0 /var/www/html/system/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /var/www/html/system/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /var/www/html/system/API/ResponseTrait.php(103): CodeIgniter\RESTful\ResourceController->format(Array)
+#3 /var/www/html/app/Controllers/SolicitudEmpleoController.php(27): CodeIgniter\RESTful\ResourceController->respond(Array)
+#4 /var/www/html/system/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->getSolicitudEmpleos()
+#5 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+#6 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+[Method: GET, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Format/JSONFormatter.php on line 45.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-05-11 10:07:47 --> CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+[Method: GET, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Format/JSONFormatter.php on line 45.
+ 1 SYSTEMPATH/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8 characters, possibly incorrectly encoded')
+ 2 SYSTEMPATH/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format([...])
+ 3 SYSTEMPATH/API/ResponseTrait.php(103): CodeIgniter\RESTful\ResourceController->format([...])
+ 4 APPPATH/Controllers/SolicitudEmpleoController.php(27): CodeIgniter\RESTful\ResourceController->respond([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->getSolicitudEmpleos()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 10:07:47 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded in /var/www/html/system/Format/JSONFormatter.php:45
+Stack trace:
+#0 /var/www/html/system/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /var/www/html/system/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /var/www/html/system/API/ResponseTrait.php(103): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 /var/www/html/system/Debug/ExceptionHandler.php(83): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 /var/www/html/system/Debug/Exceptions.php(163): CodeIgniter\Debug\ExceptionHandler->handle(Object(CodeIgniter\Format\Exceptions\FormatException), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Format\Exceptions\FormatException))
+#6 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Format\Exceptions\FormatException
+Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+#0 /var/www/html/system/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /var/www/html/system/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /var/www/html/system/API/ResponseTrait.php(103): CodeIgniter\RESTful\ResourceController->format(Array)
+#3 /var/www/html/app/Controllers/SolicitudEmpleoController.php(27): CodeIgniter\RESTful\ResourceController->respond(Array)
+#4 /var/www/html/system/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->getSolicitudEmpleos()
+#5 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+#6 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+[Method: GET, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Format/JSONFormatter.php on line 45.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-05-11 10:08:06 --> CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+[Method: GET, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Format/JSONFormatter.php on line 45.
+ 1 SYSTEMPATH/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8 characters, possibly incorrectly encoded')
+ 2 SYSTEMPATH/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format([...])
+ 3 SYSTEMPATH/API/ResponseTrait.php(103): CodeIgniter\RESTful\ResourceController->format([...])
+ 4 APPPATH/Controllers/SolicitudEmpleoController.php(27): CodeIgniter\RESTful\ResourceController->respond([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->getSolicitudEmpleos()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 10:08:06 --> ErrorException: Uncaught CodeIgniter\Format\Exceptions\FormatException: Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded in /var/www/html/system/Format/JSONFormatter.php:45
+Stack trace:
+#0 /var/www/html/system/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /var/www/html/system/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /var/www/html/system/API/ResponseTrait.php(103): CodeIgniter\Debug\ExceptionHandler->format(Array)
+#3 /var/www/html/system/Debug/ExceptionHandler.php(83): CodeIgniter\Debug\ExceptionHandler->respond(Array, 500)
+#4 /var/www/html/system/Debug/Exceptions.php(163): CodeIgniter\Debug\ExceptionHandler->handle(Object(CodeIgniter\Format\Exceptions\FormatException), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Format\Exceptions\FormatException))
+#6 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Format\Exceptions\FormatException
+Failed to parse JSON string. Error: Malformed UTF-8 characters, possibly incorrectly encoded
+#0 /var/www/html/system/Format/JSONFormatter.php(45): CodeIgniter\Format\Exceptions\FormatException::forInvalidJSON('Malformed UTF-8...')
+#1 /var/www/html/system/API/ResponseTrait.php(357): CodeIgniter\Format\JSONFormatter->format(Array)
+#2 /var/www/html/system/API/ResponseTrait.php(103): CodeIgniter\RESTful\ResourceController->format(Array)
+#3 /var/www/html/app/Controllers/SolicitudEmpleoController.php(27): CodeIgniter\RESTful\ResourceController->respond(Array)
+#4 /var/www/html/system/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->getSolicitudEmpleos()
+#5 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+#6 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#8 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+[Method: GET, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Format/JSONFormatter.php on line 45.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2025-05-11 10:09:43 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: api/solicitudes-empleo]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('mensaje', 'mensaje', '', [...], [...], 'mensaje')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/SolicitudEmpleoController.php(50): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\SolicitudEmpleoController->createSolicitudEmpleo()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SolicitudEmpleoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-11 10:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 10:59:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 10:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 10:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:27:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:37:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:43:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:44:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:56:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:56:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:56:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:57:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 11:57:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 12:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 12:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 12:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 12:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-11 17:07:23 --> mysqli_sql_exception: Duplicate entry 'Dulce' for key 'nombre' in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `ca...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ca...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ca...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ca...', Array, false)
+#4 /var/www/html/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/html/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /var/www/html/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /var/www/html/app/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert(Array)
+#8 /var/www/html/system/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+#9 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+#10 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-11 17:07:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Dulce' for key 'nombre'
+[Method: POST, Route: api/categorias]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:07:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Dulce' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:07:27 --> [Caused by] mysqli_sql_exception: Duplicate entry 'Dulce' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-11 17:07:27 --> mysqli_sql_exception: Duplicate entry 'Dulce' for key 'nombre' in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `ca...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ca...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ca...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ca...', Array, false)
+#4 /var/www/html/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/html/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /var/www/html/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /var/www/html/app/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert(Array)
+#8 /var/www/html/system/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+#9 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+#10 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-11 17:07:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Dulce' for key 'nombre'
+[Method: POST, Route: api/categorias]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:07:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Dulce' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:07:27 --> [Caused by] mysqli_sql_exception: Duplicate entry 'Dulce' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-11 17:07:54 --> mysqli_sql_exception: Duplicate entry 'Dulce' for key 'nombre' in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `ca...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ca...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ca...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ca...', Array, false)
+#4 /var/www/html/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /var/www/html/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /var/www/html/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /var/www/html/app/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert(Array)
+#8 /var/www/html/system/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+#9 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+#10 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-11 17:07:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Dulce' for key 'nombre'
+[Method: POST, Route: api/categorias]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:07:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Dulce' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:07:54 --> [Caused by] mysqli_sql_exception: Duplicate entry 'Dulce' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (\'Dulce\', \'Productos dulces recién horneados o pasteles.\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `categorias` (`nombre`, `descripcion`) VALUES (:nombre:, :descripcion:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/CategoriaController.php(37): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->crearCategoria()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-11 17:08:10 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`productos`, CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `ca...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `ca...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `ca...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `ca...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/CategoriaController.php(59): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\CategoriaController->deleteCategoria('2')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-11 17:08:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`productos`, CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`))
+[Method: DELETE, Route: api/categorias/2]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `categorias`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/CategoriaController.php(59): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->deleteCategoria('2')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:08:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`productos`, CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `categorias`
+WHERE `id` IN (\'2\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `categorias`
+WHERE `id` IN (\'2\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `categorias`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/CategoriaController.php(59): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->deleteCategoria('2')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:08:10 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`productos`, CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `categorias`
+WHERE `id` IN (\'2\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `categorias`
+WHERE `id` IN (\'2\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `categorias`
+WHERE `id` IN (\'2\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `categorias`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/CategoriaController.php(59): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->deleteCategoria('2')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-11 17:09:22 --> mysqli_sql_exception: Duplicate entry 'Pan blanco' for key 'nombre' in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('UPDATE `categor...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `categor...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `categor...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `categor...', Array, false)
+#4 /var/www/html/system/Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 /var/www/html/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /var/www/html/system/Model.php(865): CodeIgniter\BaseModel->update(Array, Array)
+#7 /var/www/html/app/Controllers/CategoriaController.php(49): CodeIgniter\Model->update('2', Array)
+#8 /var/www/html/system/CodeIgniter.php(933): App\Controllers\CategoriaController->updateCategoria('2')
+#9 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+#10 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-11 17:09:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Pan blanco' for key 'nombre'
+[Method: PUT, Route: api/categorias/2]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `categorias` SET `nombre` = :nombre:, `descripcion` = :descripcion:
+WHERE `categorias`.`id` IN :categorias.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Controllers/CategoriaController.php(49): CodeIgniter\Model->update('2', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->updateCategoria('2')
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:09:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Pan blanco' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `categorias` SET `nombre` = \'Pan blanco\', `descripcion` = \'Nuestros panes hechos con harina común\'
+WHERE `categorias`.`id` IN (\'2\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `categorias` SET `nombre` = \'Pan blanco\', `descripcion` = \'Nuestros panes hechos con harina común\'
+WHERE `categorias`.`id` IN (\'2\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `categorias` SET `nombre` = :nombre:, `descripcion` = :descripcion:
+WHERE `categorias`.`id` IN :categorias.id:', [...], false)
+ 4 SYSTEMPATH/Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH/Controllers/CategoriaController.php(49): CodeIgniter\Model->update('2', [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->updateCategoria('2')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-11 17:09:22 --> [Caused by] mysqli_sql_exception: Duplicate entry 'Pan blanco' for key 'nombre'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('UPDATE `categorias` SET `nombre` = \'Pan blanco\', `descripcion` = \'Nuestros panes hechos con harina común\'
+WHERE `categorias`.`id` IN (\'2\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `categorias` SET `nombre` = \'Pan blanco\', `descripcion` = \'Nuestros panes hechos con harina común\'
+WHERE `categorias`.`id` IN (\'2\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `categorias` SET `nombre` = \'Pan blanco\', `descripcion` = \'Nuestros panes hechos con harina común\'
+WHERE `categorias`.`id` IN (\'2\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `categorias` SET `nombre` = :nombre:, `descripcion` = :descripcion:
+WHERE `categorias`.`id` IN :categorias.id:', [...], false)
+ 5 SYSTEMPATH/Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH/Controllers/CategoriaController.php(49): CodeIgniter\Model->update('2', [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CategoriaController->updateCategoria('2')
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CategoriaController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2025-05-11 17:11:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 17:11:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 17:11:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-11 17:40:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
