@@ -1,6 +1,8 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {ApiPanaderiaService} from '../../../../services/apiPanaderia.service';
 import {DatePipe} from '@angular/common';
+import {AuthService} from '../../../AuthService/AuthService';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-consultas-detail',
@@ -12,11 +14,20 @@ import {DatePipe} from '@angular/common';
 })
 export class ConsultasDetailComponent implements OnInit {
   @Input('id')id!: string;
+  private readonly router = inject(Router)
+  private readonly authService = inject(AuthService);
   private readonly panaderiaService = inject(ApiPanaderiaService);
   consulta: any
+  admin = false;
 
   ngOnInit() {
     this.getConsultaDetail(this.id);
+    this.authService.isAdmin$.subscribe(isAdmin => {
+      this.admin = isAdmin;
+      if (!this.admin) {
+        this.router.navigate(['/inicio']);
+      }
+    });
   }
 
   getConsultaDetail(id: string) {

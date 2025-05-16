@@ -20,7 +20,6 @@ export class ConsultasContactoComponent implements OnInit {
   private readonly panaderiaService = inject(ApiPanaderiaService);
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
-
   admin = false;
   consultas: any[] = [];
 

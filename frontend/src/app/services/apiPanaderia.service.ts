@@ -130,7 +130,6 @@ export class ApiPanaderiaService {
     return this.http.post(this.API_URL + 'pedidos', pedidoData, {headers: this.headers});
   }
 
-
   // DETALLE PEDIDOS
 
   postDetallePedidos(pedido: any) {

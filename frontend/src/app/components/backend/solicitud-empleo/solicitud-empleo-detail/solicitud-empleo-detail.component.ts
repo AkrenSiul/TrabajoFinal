@@ -1,5 +1,7 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {ApiPanaderiaService} from '../../../../services/apiPanaderia.service';
+import {Router} from '@angular/router';
+import {AuthService} from '../../../AuthService/AuthService';
 
 @Component({
   selector: 'app-solicitud-empleo-detail',
@@ -9,11 +11,21 @@ import {ApiPanaderiaService} from '../../../../services/apiPanaderia.service';
 })
 export class SolicitudEmpleoDetailComponent implements OnInit {
   @Input('id')id!: string;
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
   private readonly panaderiaService = inject(ApiPanaderiaService);
   solicitud: any
+  admin = false;
 
   ngOnInit() {
     this.getSolicitudDetail(this.id);
+
+    this.authService.isAdmin$.subscribe(isAdmin => {
+      this.admin = isAdmin;
+      if (!this.admin) {
+        this.router.navigate(['/inicio']);
+      }
+    });
   }
 
   getSolicitudDetail(id: string) {

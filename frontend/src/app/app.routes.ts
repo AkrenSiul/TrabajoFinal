@@ -18,6 +18,7 @@ import {
   ConsultasDetailComponent
 } from './components/backend/consultas-contacto/consultas-detail/consultas-detail.component';
 import {AllPedidosComponent} from './components/all-pedidos/all-pedidos.component';
+import {PedidosAdminComponent} from './components/backend/pedidos-admin/pedidos-admin.component';
 
 export const routes: Routes = [
   {
@@ -84,5 +85,9 @@ export const routes: Routes = [
   {
     path: 'pedidosUsuario',
     component: AllPedidosComponent
+  },
+  {
+    path: 'pedidosAdmin',
+    component: PedidosAdminComponent
   }
 ];
