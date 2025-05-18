@@ -7,6 +7,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../../AuthService/AuthService';
 import {Router} from '@angular/router';
+import {FormValidators} from '../../../validators/formValidators';
 
 @Component({
   selector: 'app-user-list',
@@ -28,9 +29,12 @@ export class UserListComponent implements OnInit {
   admin = false;
 
   formUsers: FormGroup = this.formBuilder.group({
-    usuario: ['', [Validators.required, Validators.minLength(4)]],
-    contrasenya: [''],
-    email: ['', [Validators.required, Validators.email]],
+    usuario: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+    contrasenya: ['', [Validators.minLength(4), Validators.maxLength(255),
+      FormValidators.notOnlyWhiteSpace]],
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(100),
+      FormValidators.notOnlyWhiteSpace]],
     rol: [],
   });
 
@@ -103,14 +107,37 @@ export class UserListComponent implements OnInit {
       rol: usuario.rol
     });
 
+    this.formUsers.get('contrasenya')?.setValidators([
+      Validators.minLength(4),
+      Validators.maxLength(255),
+      FormValidators.notOnlyWhiteSpace
+    ]);
+    this.formUsers.get('contrasenya')?.updateValueAndValidity();
+
+    this.formUsers.get('rol')?.clearValidators();
+    this.formUsers.get('rol')?.updateValueAndValidity();
+
     this.modalService.open(this.modalEditar, {
       centered: true
     });
-    }
+  }
+
+
   abrirCrear() {
     this.editandoUsuario = null;
     this.formUsers.reset();
     this.mensaje = '';
+    this.formUsers.get('contrasenya')?.setValidators([
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(255),
+      FormValidators.notOnlyWhiteSpace
+    ]);
+    this.formUsers.get('contrasenya')?.updateValueAndValidity();
+
+    this.formUsers.get('rol')?.setValidators([Validators.required]);
+    this.formUsers.get('rol')?.updateValueAndValidity();
+
     this.modalService.open(this.modalEditar, {
       centered: true
     });

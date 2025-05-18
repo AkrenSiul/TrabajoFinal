@@ -51,14 +51,41 @@
           <label class="text-center" for="usuarioRegistro">Usuario</label>
           <input formControlName="usuario" type="text" id="usuarioRegistro">
         </div>
+        @if(usuario?.touched && usuario?.invalid){
+          <div class="text-danger text-center">
+            @if(usuario?.errors?.['required']) { El usuario es obligatorio }
+            @if(usuario?.errors?.['notOnlyWhiteSpace'] && !usuario?.errors?.['minlength']
+            && !usuario?.errors?.['required']) { El usuario no puede contener solo espacios en blanco }
+            @if(usuario?.errors?.['minlength']) { El usuario debe contener al menos 4 caracteres }
+            @if(usuario?.errors?.['maxlength']) { El usuario no puede contener más de 100 caracteres }
+          </div>
+        }
         <div class="d-grid justify-content-center pb-2">
           <label class="text-center" for="contrasenyaRegistro">Contraseña</label>
           <input formControlName="contrasenya" type="password" id="contrasenyaRegistro">
         </div>
+        @if(contrasenya?.touched && contrasenya?.invalid){
+          <div class="text-danger text-center">
+            @if(contrasenya?.errors?.['required']) { La contraseña es obligatorio }
+            @if(contrasenya?.errors?.['notOnlyWhiteSpace'] && !contrasenya?.errors?.['minlength']
+            && !contrasenya?.errors?.['required']) { La contraseña no puede contener solo espacios en blanco }
+            @if(contrasenya?.errors?.['minlength']) { La contraseña debe contener al menos 4 caracteres }
+            @if(contrasenya?.errors?.['maxlength']) { La contraseña no puede contener más de 255 caracteres }
+          </div>
+        }
         <div class="d-grid justify-content-center pb-2">
           <label class="text-center" for="email">Email</label>
           <input formControlName="email" type="text" id="email">
         </div>
+        @if(email?.touched && email?.invalid){
+          <div class="text-danger text-center">
+            @if(email?.errors?.['required']) { El correo electrónico es obligatorio }
+            @if(email?.errors?.['notOnlyWhiteSpace'] && !email?.errors?.['minlength']
+            && !email?.errors?.['required']) { El correo no puede contener solo espacios en blanco }
+            @if(email?.errors?.['email']) { El correo electrónico debe ser un correo electrónico válido }
+            @if(email?.errors?.['maxlength']) { El correo electrónico no puede contener más de 100 caracteres }
+          </div>
+        }
         <div class="d-grid justify-content-center pb-2">
           <label class="text-center" for="rol">Rol</label>
           <select id="rol" formControlName="rol">
@@ -66,6 +93,11 @@
             <option value="usuario">Usuario</option>
           </select>
         </div>
+        @if(rol?.touched && rol?.invalid) {
+          <div class="text-danger text-center">
+            @if(rol?.errors?.['required']) { El rol es obligatorio. }
+          </div>
+        }
         <div class="pt-2 d-flex justify-content-center">
           <button type="submit" class="btn btn-primary">
             {{ editandoUsuario ? 'Guardar Cambios' : 'Crear Usuario' }}

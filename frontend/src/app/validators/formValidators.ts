@@ -1,13 +1,10 @@
-import {AbstractControl, FormControl, ValidationErrors} from '@angular/forms';
+import {AbstractControl, FormControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 
 export class FormValidators {
-  static notOnlyWhiteSpace(control: FormControl): ValidationErrors | null {
-    if (control.value != null && (control.value.trim() == 0)) {
-      return {notOnlyWhiteSpace: true};
-    } else {
-      return null;
-    }
-  }
+  static notOnlyWhiteSpace: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    return isWhitespace ? { whitespace: true } : null;
+  };
 
   static pdfFileValidator(control: AbstractControl): ValidationErrors | null {
     const file = control.value as File | null;

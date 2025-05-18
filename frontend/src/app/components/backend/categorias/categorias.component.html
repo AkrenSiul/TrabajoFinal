@@ -47,10 +47,28 @@
           <label for="nombre">Nombre</label>
           <input id="nombre" formControlName="nombre" type="text" class="form-control" />
         </div>
+        @if(nombre?.touched && nombre?.invalid){
+          <div class="text-danger">
+            @if(nombre?.errors?.['required']) { El nombre es obligatorio }
+            @if(nombre?.errors?.['notOnlyWhiteSpace'] && !nombre?.errors?.['minlength']
+            && !nombre?.errors?.['required']) { El nombre no puede contener solo espacios en blanco }
+            @if(nombre?.errors?.['minlength']) { El nombre debe contener al menos 4 caracteres }
+            @if(nombre?.errors?.['maxlength']) { El nombre no puede contener más de 100 caracteres }
+          </div>
+        }
         <div class="form-group pb-2">
           <label for="descripcion">Descripción</label>
           <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
         </div>
+        @if(descripcion?.touched && descripcion?.invalid) {
+          <div class="text-danger">
+            @if(descripcion?.errors?.['required']) { La descripción es obligatoria }
+            @if(descripcion?.errors?.['notOnlyWhiteSpace'] && !descripcion?.errors?.['minlength']
+            && !descripcion?.errors?.['required']) { La descripcion no puede contener solo espacios en blanco }
+            @if(descripcion?.errors?.['minlength']) { La descripcion debe contener al menos 4 caracteres }
+            @if(descripcion?.errors?.['maxlength']) { La descripcion no puede contener más de 255 caracteres }
+          </div>
+        }
         <div class="d-flex justify-content-center pt-2">
           <button type="submit" class="btn btn-primary">
             {{ editandoCategoria ? 'Guardar Cambios' : 'Crear Categoría' }}

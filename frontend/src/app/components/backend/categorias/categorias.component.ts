@@ -7,6 +7,7 @@ import {AuthService} from '../../AuthService/AuthService';
 import {Router} from '@angular/router';
 import {faUserPen} from '@fortawesome/free-solid-svg-icons/faUserPen';
 import {faPenToSquare} from '@fortawesome/free-solid-svg-icons/faPenToSquare';
+import {FormValidators} from '../../../validators/formValidators';
 
 @Component({
   selector: 'app-categorias',
@@ -32,8 +33,11 @@ export class CategoriasComponent implements OnInit {
   faPenToSquare = faPenToSquare;
 
   formCategoria: FormGroup = this.formBuilder.group({
-    nombre: ['', [Validators.required, Validators.minLength(3)]],
-    descripcion: ['', [Validators.required]]
+    nombre: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(100),
+      FormValidators.notOnlyWhiteSpace]],
+    descripcion: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]]
   });
 
   get nombre() {
