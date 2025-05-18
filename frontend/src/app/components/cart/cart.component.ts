@@ -48,10 +48,20 @@ export class CartComponent implements AfterViewInit {
   }
 
   guardarPedido() {
+    this.mostrarModalPago();
+  }
+  mostrarModalPago() {
+    if (this.modalInstance) {
+      this.modalInstance.show();
+    }
+  }
+
+  confirmarPago() {
     this.cartService.cart$.subscribe((productos) => {
       if (!productos || productos.length === 0) {
-        return
+        return;
       }
+
       let total = 0;
       productos.forEach(producto => {
         total += (producto.precio * (producto.cantidad || 1));
@@ -81,20 +91,15 @@ export class CartComponent implements AfterViewInit {
               response => console.log('Detalle guardado:', response),
               error => console.error('Error al guardar detalle:', error)
             );
-            this.mostrarModalPago();
-            this.cartService.clearCart();
           });
+
+          this.cartService.clearCart();
         },
         error: (err) => {
           console.error('Error al crear el pedido:', err);
         }
       });
     });
-  }
-  mostrarModalPago() {
-    if (this.modalInstance) {
-      this.modalInstance.show();
-    }
   }
 
   actualizarCantidad(id: string, cantidad: number) {
