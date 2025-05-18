@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/cart/cart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/pedidos-admin/pedidos-admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/pedidos-admin/pedidos-admin.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/pedidos-admin/pedidos-admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/pedidos-admin/pedidos-admin.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

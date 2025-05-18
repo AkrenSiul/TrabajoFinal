@@ -15,7 +15,8 @@
 
     <div>
       <label for="estado">Estado:</label>
-      <select [(ngModel)]="pedido.estado" (change)="actualizarEstado(pedido)" class="form-select">
+      <select [(ngModel)]="pedido.estado" (change)="actualizarEstado(pedido)"
+              [name]="'estado_' + pedido.id"  class="form-select">
         @for(estado of estados; track $index){
         <option [value]="estado">{{ estado }}</option>
         }

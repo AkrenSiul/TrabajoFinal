@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-pedidos-admin',
+  standalone: true,
   imports: [
     FormsModule,
     DatePipe
@@ -21,7 +22,7 @@ export class PedidosAdminComponent implements OnInit {
   private readonly router = inject(Router);
   admin = false;
   pedidoDetalles: InterfacePedidoDetalles[] = [];
-  estados: string[] = ['pedido', 'enviado', 'entregado', 'cancelado'];
+  estados: string[] = ['pendiente', 'enviado', 'entregado', 'cancelado'];
   idUser!: string;
 
   constructor() {
