@@ -1,0 +1,553 @@
+INFO - 2025-05-18 08:38:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 09:21:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 09:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 09:22:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 09:26:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 09:55:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 09:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:28:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:28:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:31:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:40:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:41:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:45:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:52:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:54:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:55:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-18 10:56:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-05-18 16:23:08 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-05-18 16:23:08 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:08 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:08 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-18 16:23:09 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:09 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-18 16:23:09 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:09 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-18 16:23:10 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:10 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-18 16:23:15 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:15 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-18 16:23:17 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:17 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-18 16:23:22 --> mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`)) in /var/www/html/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pe...', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pe...')
+#2 /var/www/html/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pe...')
+#3 /var/www/html/system/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pe...', Array, false)
+#4 /var/www/html/system/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+#5 /var/www/html/system/BaseModel.php(1158): CodeIgniter\Model->doDelete(Array, false)
+#6 /var/www/html/app/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete(Array)
+#7 /var/www/html/system/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+#8 /var/www/html/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+#9 /var/www/html/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-18 16:23:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+[Method: DELETE, Route: api/pedidos/11]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 2 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 3 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 4 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 4 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 5 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 6 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-18 16:23:22 --> [Caused by] mysqli_sql_exception: Cannot delete or update a parent row: a foreign key constraint fails (`panaderia`.`detalle_pedidos`, CONSTRAINT `detalle_pedidos_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('DELETE FROM `pedidos`
+WHERE `id` IN (\'11\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2843): CodeIgniter\Database\BaseConnection->query('DELETE FROM `pedidos`
+WHERE `id` IN :id:', [...], false)
+ 5 SYSTEMPATH/Model.php(521): CodeIgniter\Database\BaseBuilder->delete()
+ 6 SYSTEMPATH/BaseModel.php(1158): CodeIgniter\Model->doDelete([...], false)
+ 7 APPPATH/Controllers/PedidoController.php(167): CodeIgniter\BaseModel->delete([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\PedidoController->deletePedido('11')
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PedidoController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

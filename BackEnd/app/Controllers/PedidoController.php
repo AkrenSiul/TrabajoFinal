@@ -44,7 +44,6 @@ class PedidoController extends ResourceController
 
             $pedido['detalles'] = $detalles;
         }
-
         return $this->respond($pedidos);
     }
 
@@ -134,7 +133,7 @@ class PedidoController extends ResourceController
         $validationRules = [
             'usuario_id'    => 'required|integer',
             'fecha_pedido'  => 'required|valid_date[Y-m-d]',
-            'estado'        => 'required|in_list[pedido,enviado,cancelado,entregado]',
+            'estado'        => 'required|in_list[pendiente,enviado,cancelado,entregado]',
             'total'         => 'required|numeric'
         ];
         $dataPost = [
