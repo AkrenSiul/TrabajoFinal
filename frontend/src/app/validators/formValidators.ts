@@ -15,9 +15,12 @@ export class FormValidators {
     return file.type === 'application/pdf' ? null : {invalidFileType: true};
   }
   static imgValidator(control: AbstractControl): ValidationErrors | null {
-    const file = control.value as File | null;
-    if (!file) return null;
-    const validTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-    return validTypes.includes(file.type) ? null : { invalidImageType: true };
+    const value = control.value;
+    if (!value || value.trim() === '') {
+      return null;
+    }
+    const extension = value.split('.').pop()?.toLowerCase();
+    const validExtensions = ['jpg', 'jpeg', 'png'];
+    return validExtensions.includes(extension!) ? null : { invalidImageType: true };
   }
 }

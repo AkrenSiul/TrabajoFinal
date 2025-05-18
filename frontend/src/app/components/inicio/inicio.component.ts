@@ -53,7 +53,7 @@ export class InicioComponent implements OnInit{
     {
       nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
       descripcion: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]],
-      imagen_url: [null , FormValidators.imgValidator],
+      imagen_url: ['' , FormValidators.imgValidator],
       precio: [0, [Validators.required, Validators.min(0.01)]],
       stock: [0 , [Validators.required, Validators.min(0)]],
       categoria_id: [],
@@ -155,6 +155,7 @@ export class InicioComponent implements OnInit{
   }
 
   edit() {
+    this.formProduct.markAllAsTouched();
     if (this.formProduct.valid && this.editandProducto) {
       const formData = new FormData();
 
@@ -212,7 +213,7 @@ export class InicioComponent implements OnInit{
 
       if (!allowedTypes.includes(file.type)) {
         this.selectedFile = null;
-        this.formProduct.get('imagen_url')?.setErrors({invalidImageType: true});
+        this.formProduct.get('imagen_url')?.setErrors(null);
         this.formProduct.patchValue({imagen_url: null});
       } else {
         this.selectedFile = file;

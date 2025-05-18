@@ -34,6 +34,9 @@ export class LoginComponent implements OnInit {
   get contrasenya() {
     return this.formLogin.get('contrasenya');
   }
+  get email() {
+    return this.formLogin.get('email');
+  }
 
   ngOnInit() {
     this.authService.loginOn$.subscribe(isLogged => {
