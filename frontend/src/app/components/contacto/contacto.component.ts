@@ -1,6 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
+import {FormValidators} from '../../validators/formValidators';
 
 @Component({
   selector: 'app-contacto',
@@ -16,12 +17,32 @@ export class ContactoComponent {
 
   formContact = this.formBuilder.group(
     {
-      nombre: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      telefono: [''],
-      consulta: ['', Validators.required]
+      nombre: ['', Validators.required,Validators.minLength(4),
+        Validators.maxLength(100), FormValidators.notOnlyWhiteSpace],
+      email: ['', [Validators.required, Validators.email,Validators.minLength(4),
+        Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+      telefono: ['', [Validators.required, Validators.minLength(9),
+        Validators.maxLength(20), Validators.pattern(/^[\d\s\-()+]+$/)
+      ]],
+      consulta: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(5000), FormValidators.notOnlyWhiteSpace]]
     }
   )
+  get nombre() {
+    return this.formContact.get('nombre');
+  }
+
+  get email() {
+    return this.formContact.get('email');
+  }
+
+  get telefono() {
+    return this.formContact.get('telefono');
+  }
+
+  get consulta() {
+    return this.formContact.get('consulta');
+  }
 
   enviarConsulta() {
     if (this.formContact.valid) {

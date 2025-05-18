@@ -4,6 +4,7 @@ import { ApiPanaderiaService } from '../../services/apiPanaderia.service';
 import { AuthService } from '../AuthService/AuthService';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {FormValidators} from '../../validators/formValidators';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +25,10 @@ export class LoginComponent implements OnInit {
   mensaje = '';
 
   formLogin: FormGroup = this.formBuilder.group({
-    usuario: ['', [Validators.required, Validators.minLength(4)]],
-    contrasenya: ['', [Validators.required, Validators.minLength(4)]],
+    usuario: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+    contrasenya: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]],
   });
 
   get usuario() {
@@ -57,9 +60,8 @@ export class LoginComponent implements OnInit {
           this.mensaje = `Bienvenido, ` + value.usuario.usuario;
           this.router.navigateByUrl('/inicio');
         },
-        error: err => {
-          this.mensaje = 'Error al iniciar sesión. ' + (err.error?.messages?.error || err.message);
-          this.formLogin.reset();
+        error: () => {
+          this.mensaje = 'Error al iniciar sesión. Credenciales incorrectas ';
         }
       });
     }
@@ -95,6 +97,7 @@ export class LoginComponent implements OnInit {
   }
 
   addRegisterFields() {
-    this.formLogin.addControl('email', this.formBuilder.control('', [Validators.required, Validators.email]));
+    this.formLogin.addControl('email', this.formBuilder.control('',
+      [Validators.required, Validators.email, Validators.maxLength(100)]));
   }
 }

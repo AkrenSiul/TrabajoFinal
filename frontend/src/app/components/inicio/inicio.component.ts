@@ -51,8 +51,10 @@ export class InicioComponent implements OnInit{
   cartItems: { [productoId: string]: number } = {};
   formProduct: FormGroup = this.formBuilder.group(
     {
-      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
-      descripcion: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]],
+      nombre: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+      descripcion: ['', [Validators.required, Validators.minLength(4),
+        Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]],
       imagen_url: ['' , FormValidators.imgValidator],
       precio: [0, [Validators.required, Validators.min(0.01)]],
       stock: [0 , [Validators.required, Validators.min(0)]],

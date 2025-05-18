@@ -29,18 +29,58 @@
             <label class="pb-3 pt-3 fw-bold" for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" formControlName="nombre">
           </div>
+          @if(nombre?.touched && nombre?.invalid){
+            <div class="text-danger">
+              @if(nombre?.errors?.['required']) { El nombre es obligatorio }
+              @if(nombre?.errors?.['notOnlyWhiteSpace'] && !nombre?.errors?.['minlength']
+              && !nombre?.errors?.['required']) { El nombre no puede contener solo espacios en blanco }
+              @if(nombre?.errors?.['minlength']) { El nombre debe contener al menos 4 caracteres }
+              @if(nombre?.errors?.['maxlength']) { El nombre no puede contener más de 100 caracteres }
+            </div>
+          }
           <div class="form-group">
             <label class="pb-2 pt-2 fw-bold" for="email">Email</label>
             <input type="email" class="form-control" id="email" formControlName="email">
           </div>
+          @if(email?.touched && email?.invalid){
+            <div class="text-danger">
+              @if(email?.errors?.['required']) { El correo electrónico es obligatorio }
+              @if(email?.errors?.['notOnlyWhiteSpace'] && !email?.errors?.['minlength']
+              && !email?.errors?.['required']) { El correo no puede contener solo espacios en blanco }
+              @if(email?.errors?.['email']) { El correo electrónico debe ser un correo electrónico válido }
+              @if(email?.errors?.['maxlength']) { El correo electrónico no puede contener más de 100 caracteres }
+            </div>
+          }
           <div class="form-group">
             <label class="pb-2 pt-2 fw-bold" for="telefono">Teléfono</label>
             <input type="text" class="form-control" id="telefono" formControlName="telefono">
           </div>
+          @if(telefono?.touched && telefono?.invalid){
+            <div class="text-danger">
+              @if (telefono?.errors?.['required']) { El teléfono es obligatorio }
+              @if (telefono?.errors?.['minlength']) { El teléfono debe tener al menos 9 caracteres }
+              @if (telefono?.errors?.['maxlength']) { El teléfono no puede tener más de 20 caracteres }
+              @if (telefono?.errors?.['pattern']) {
+                @if(telefono?.errors?.['minlength'] || telefono?.errors?.['maxlength']){ <br> }
+                El teléfono solo puede contener números y símbolos como + - ( ) }
+            </div>
+          }
           <div class="form-group">
             <label class="pb-2 pt-2 fw-bold" for="consulta">Consulta</label>
             <textarea rows="10" class="form-control" id="consulta" formControlName="consulta"></textarea>
           </div>
+          @if (consulta?.touched && consulta?.invalid) {
+            <div class="text-danger">
+              @if (consulta?.errors?.['required']) { La consulta es obligatoria }
+              @if (consulta?.errors?.['minlength']) { La consulta debe tener al menos 4 caracteres }
+              @if (consulta?.errors?.['maxlength']) { La consulta no puede tener más de 5000 caracteres }
+              @if (consulta?.errors?.['notOnlyWhiteSpace'] &&
+              !consulta?.errors?.['required'] &&
+              !consulta?.errors?.['minlength']) {
+                La consulta no puede contener solo espacios en blanco
+              }
+            </div>
+          }
           <div class="d-flex justify-content-end pt-2">
             <button class="btn btn-primary" type="submit">Enviar Consulta</button>
           </div>
