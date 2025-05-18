@@ -1,4 +1,4 @@
-import {AbstractControl, FormControl, ValidationErrors, ValidatorFn} from '@angular/forms';
+import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 
 export class FormValidators {
   static notOnlyWhiteSpace: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {

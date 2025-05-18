@@ -58,3 +58,41 @@
 } @else {
   <h4>No hay productos en el carrito.</h4>
 }
+
+<div class="modal fade" #modalPago tabindex="-1" aria-labelledby="modalPagoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalPagoLabel">Pagar con tarjeta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Introduce tus datos de tarjeta para completar el pago del pedido nº {{ pedidoId }}.</p>
+        <form>
+          <div class="mb-3">
+            <label for="tarjeta" class="form-label">Número de tarjeta</label>
+            <input type="text" class="form-control" id="tarjeta" placeholder="1234 5678 9012 3456">
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Titular</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre completo">
+          </div>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label for="fecha" class="form-label">Fecha caducidad</label>
+              <input type="text" class="form-control" id="fecha" placeholder="MM/AA">
+            </div>
+            <div class="col-6 mb-3">
+              <label for="cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cvv" placeholder="123">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Pagar</button>
+      </div>
+    </div>
+  </div>
+</div>

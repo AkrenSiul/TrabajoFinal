@@ -1,10 +1,12 @@
-import {Component, inject} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {InterfaceProductos} from '../../common/productos';
 import {CartService} from '../../services/cart.service';
 import {Observable} from 'rxjs';
 import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
 import {AsyncPipe, CurrencyPipe} from '@angular/common';
 import {AuthService} from '../AuthService/AuthService';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +17,9 @@ import {AuthService} from '../AuthService/AuthService';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent {
+export class CartComponent implements AfterViewInit {
+  @ViewChild('modalPago') modalPago!: ElementRef;
+  private modalInstance: any;
   private cartService = inject(CartService);
   private panaderiaService = inject(ApiPanaderiaService);
   private readonly authService = inject(AuthService);
@@ -77,6 +81,7 @@ export class CartComponent {
               response => console.log('Detalle guardado:', response),
               error => console.error('Error al guardar detalle:', error)
             );
+            this.mostrarModalPago();
             this.cartService.clearCart();
           });
         },
@@ -85,6 +90,11 @@ export class CartComponent {
         }
       });
     });
+  }
+  mostrarModalPago() {
+    if (this.modalInstance) {
+      this.modalInstance.show();
+    }
   }
 
   actualizarCantidad(id: string, cantidad: number) {
@@ -96,6 +106,11 @@ export class CartComponent {
     if (productoExistente) {
       const nuevoProducto = {...productoExistente, cantidad};
       this.cartService.addProduct(nuevoProducto);
+    }
+  }
+  ngAfterViewInit() {
+    if (this.modalPago) {
+      this.modalInstance = new bootstrap.Modal(this.modalPago.nativeElement);
     }
   }
 }

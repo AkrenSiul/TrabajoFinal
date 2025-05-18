@@ -4,7 +4,6 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faUserPen} from '@fortawesome/free-solid-svg-icons/faUserPen';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {Subscription} from 'rxjs';
 import {AuthService} from '../../AuthService/AuthService';
 import {Router} from '@angular/router';
 import {FormValidators} from '../../../validators/formValidators';
