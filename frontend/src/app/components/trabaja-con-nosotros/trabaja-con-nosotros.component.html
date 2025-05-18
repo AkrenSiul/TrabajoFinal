@@ -1,5 +1,4 @@
 <section class="d-flex flex-wrap w-100 bg-dark-subtle p-5">
-  <!-- Parte izquierda: imagen + texto -->
   <div class="position-relative w-50 d-flex justify-content-center align-items-center">
     <img
       src="/assets/trabaja-con-nosotros.jpg"
@@ -30,7 +29,7 @@
       Invertiremos nuestro tiempo para que te conviertas en un profesional,
       acompañándote paso a paso con nuestro sistema de trabajo.
     </p>
-    <a href="trabaja-nosotros/#formulario" class="btn btn-primary mt-2">
+    <a [routerLink]="['/trabaja-nosotros']" fragment="formulario" class="btn btn-primary mt-2">
       Enviar solicitud
     </a>
   </div>
@@ -60,7 +59,6 @@
       <label for="nombre" class="form-label">Nombre</label>
       <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Tu nombre">
     </div>
-
     <div class="mb-3">
       <label for="email" class="form-label">Correo electrónico</label>
       <input type="email" class="form-control" id="email" formControlName="email" placeholder="Tu correo">

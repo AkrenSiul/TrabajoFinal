@@ -12,7 +12,6 @@ export class AuthService {
   loginOn$ = this.loginOnSubject.asObservable();
   isAdmin$ = this.isAdminSubject.asObservable();
 
-
   private getLoginFromStorage(): boolean {
     return localStorage.getItem('loginOn') === 'true';
   }

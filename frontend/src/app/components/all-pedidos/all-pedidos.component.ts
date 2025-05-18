@@ -23,6 +23,7 @@ export class AllPedidosComponent implements OnInit {
     if(user.id) {
       this.idUser = user.id;
     }
+
   }
 
   ngOnInit() {

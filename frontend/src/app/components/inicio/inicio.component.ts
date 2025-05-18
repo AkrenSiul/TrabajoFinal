@@ -1,6 +1,6 @@
 import {Component, inject, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbCarousel, NgbModal, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {NgbCarousel, NgbModal, NgbPagination, NgbSlide} from '@ng-bootstrap/ng-bootstrap';
 import {InterfaceProductos} from '../../common/productos';
 import {AuthService} from '../AuthService/AuthService';
 import {FaIconComponent} from '@fortawesome/angular-fontawesome';
@@ -10,9 +10,11 @@ import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
 import {faTrash} from '@fortawesome/free-solid-svg-icons/faTrash';
 import {CartService} from '../../services/cart.service';
 import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
+import {FormValidators} from '../../validators/formValidators';
 
 @Component({
   selector: 'app-inicio',
+  standalone: true,
   imports: [
     NgbCarousel,
     NgbSlide,
@@ -21,6 +23,7 @@ import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
     CurrencyPipe,
     FormsModule,
     NgClass,
+    NgbPagination
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
@@ -33,25 +36,55 @@ export class InicioComponent implements OnInit{
   private authService = inject(AuthService);
   private modalService = inject(NgbModal)
   productos: InterfaceProductos[] = [];
+  productosRandom: InterfaceProductos[] = [];
   editandProducto: string | null = null;
   selectedFile: File | null = null;
   admin = false;
   categorias: any;
+  login: any;
   categoriaSeleccionada: number | null = null;
+  page = 1;
+  pageSize = 8;
   protected readonly faEdit = faEdit;
   protected readonly faCartPlus = faCartPlus;
   protected readonly faTrash = faTrash;
   cartItems: { [productoId: string]: number } = {};
   formProduct: FormGroup = this.formBuilder.group(
     {
-      nombre: [''],
-      descripcion: [''],
-      imagen_url: [''],
-      precio: [0],
-      stock: [0],
+      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+      descripcion: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]],
+      imagen_url: [null , FormValidators.imgValidator],
+      precio: [0, [Validators.required, Validators.min(0.01)]],
+      stock: [0 , [Validators.required, Validators.min(0)]],
       categoria_id: [],
     }
   )
+
+  get nombre() {
+    return this.formProduct.get('nombre');
+  }
+  get descripcion() {
+    return this.formProduct.get('descripcion');
+  }
+
+  get imagen_url() {
+    return this.formProduct.get('imagen_url');
+  }
+
+  get precio() {
+    return this.formProduct.get('precio');
+  }
+
+  get stock() {
+    return this.formProduct.get('stock');
+  }
+
+  get productosPaginados(): InterfaceProductos[] {
+    const start = (this.page - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    return this.productos.slice(start, end);
+  }
+
   getStockDisponible(producto: InterfaceProductos): number {
     const enCarrito = this.cartService.getCart().find(p => p.id === producto.id)?.cantidad || 0;
     return producto.stock - enCarrito;
@@ -60,6 +93,7 @@ export class InicioComponent implements OnInit{
   constructor() {
     this.getProductos();
     this.getCategoria();
+    this.productosRandom = this.randomProductos(this.productos);
   }
   ngOnInit() {
     this.authService.isAdmin$.subscribe( isAdmin =>
@@ -67,7 +101,18 @@ export class InicioComponent implements OnInit{
         this.admin = isAdmin;
       }
     )
-
+    this.authService.loginOn$.subscribe(isLogin => {
+      this.login = isLogin;
+    }
+    )
+  }
+  randomProductos(array: InterfaceProductos[]): InterfaceProductos[] {
+    let newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
   }
 
   getProductos(categoriaId: number | null = null) {
@@ -82,6 +127,7 @@ export class InicioComponent implements OnInit{
             ...producto,
             cantidad: 1,
           }))
+          this.productosRandom = this.randomProductos(this.productos);
         },
         error: err => {
           console.log(err.message);
@@ -160,9 +206,20 @@ export class InicioComponent implements OnInit{
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      this.selectedFile = input.files[0];
-      console.log(this.selectedFile);
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+
+      if (!allowedTypes.includes(file.type)) {
+        this.selectedFile = null;
+        this.formProduct.get('imagen_url')?.setErrors({invalidImageType: true});
+        this.formProduct.patchValue({imagen_url: null});
+      } else {
+        this.selectedFile = file;
+        this.formProduct.patchValue({imagen_url: file.name});
+        this.formProduct.get('imagen_url')?.setErrors(null);
+      }
+      this.formProduct.get('imagen_url')?.updateValueAndValidity();
     }
   }
 

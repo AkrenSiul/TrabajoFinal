@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
 import { AuthService } from '../AuthService/AuthService';
@@ -20,25 +20,27 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   private readonly authService = inject(AuthService);
   private readonly testService = inject(ApiPanaderiaService);
+  private readonly router = inject(Router);
   faCart = faCartShopping;
-
-  isLoggedIn = false;
+  login = false;
   esAdmin = false;
 
   private subscriptions = new Subscription();
 
   ngOnInit() {
     this.subscriptions.add(
-      this.authService.loginOn$.subscribe(isLogged => {
-        this.isLoggedIn = isLogged;
+      this.authService.loginOn$.subscribe(isLogin => {
+        this.login = isLogin;
       })
     );
-
     this.subscriptions.add(
       this.authService.isAdmin$.subscribe(isAdmin => {
         this.esAdmin = isAdmin;
       })
     );
+    if (!this.login) {
+      this.router.navigate(['/inicio']);
+    }
   }
 
   logOut() {

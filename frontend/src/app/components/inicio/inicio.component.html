@@ -3,24 +3,26 @@
     <h1 class="pb-3">¡DESCUBRE NUESTRA PANADER ONLINE!</h1>
     <h4 class="text-center pb-4">Alguno de nuestros productos</h4>
 
-    <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-7">
     <ngb-carousel
     [interval]=3500
-    [showNavigationIndicators]=true
-    style="background-color: grey"
+    [showNavigationIndicators]=false
+    class="carousel-dark"
+    style="background-color: transparent;"
     [wrap]="true">
-      @for(producto of productos; track $index) {
+      @for(producto of productosRandom; track $index) {
       <ng-template ngbSlide class="w-25">
         <div class="d-flex justify-content-center">
-          <img width="300px" height="300px" src="{{producto.imagen_url}}" alt="Random first slide" />
+          <img width="400px" height="400px" src="{{producto.imagen_url}}" alt="Random first slide" />
         </div>
-        <div class="carousel-caption text-dark">
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <div class="carousel-caption text-dark ">
+          <h4>{{producto.nombre}}</h4>
         </div>
       </ng-template>
       }
     </ngb-carousel>
+      </div>
     </div>
   </div>
 </section>
@@ -28,7 +30,7 @@
   <br>
   <div class="row g-4">
     <div class="col-3 d-flex justify-content-center">
-      <select class="form-select w-50 h-50 fw-bold" [(ngModel)]="categoriaSeleccionada" (ngModelChange)="onCategoriaChange(categoriaSeleccionada)">
+      <select class="form-select border border-2 border-dark-subtle w-50 h-50 fw-bold" [(ngModel)]="categoriaSeleccionada" (ngModelChange)="onCategoriaChange(categoriaSeleccionada)">
         <option class="text-center fw-bold" [ngValue]="null">Ver todos</option>
         @for(categoria of categorias; track categoria.id) {
         <option class="text-center fw-bold" [ngValue]="categoria.id">
@@ -51,12 +53,11 @@
       <h4 class="text-center">No hay productos en esta categoría</h4>
     </div>
     }
-    @for(producto of productos; track producto.id) {
+    @for(producto of productosPaginados; track producto.id) {
       <div class="col-md-4 col-lg-3 p-2 text-center d-flex">
-        <div class="card h-100 w-100 d-flex flex-column justify-content-between p-3">
+        <div class="card h-100 w-75 d-flex flex-column justify-content-between p-3">
           <img class="img-fluid mx-auto" src="{{ producto.imagen_url }}" alt="Imagen producto" style="max-height: 180px; object-fit: contain;">
           <div class="card-body">
-            <p class="text-muted m-0">Pan blanco</p>
             <h5 class="card-title mt-1">{{ producto.nombre }}</h5>
             <p class="badge bg-primary p-1"> {{ producto.categoria }}</p>
             <p class="card-text small text-secondary">{{ producto.descripcion }}</p>
@@ -68,7 +69,7 @@
             </span>
               </p>
             </div>
-@if(!admin){
+@if(login && !admin){
             <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
               <input
                 type="number"
@@ -102,6 +103,14 @@
       </div>
     }
   </div>
+  <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="productos.length"
+    [maxSize]="5"
+    [ellipses]="true"
+    class="my-3 justify-content-center">
+  </ngb-pagination>
 </section>
 
 <ng-container >
@@ -117,6 +126,17 @@
           <label for="nombre" class="form-label pb-2">Nombre</label>
           <input formControlName="nombre" type="text" class="form-control" id="nombre">
         </div>
+        @if(formProduct.invalid && formProduct.touched){
+          @if(nombre?.touched && nombre?.invalid){
+            <div class="text-danger">
+              @if(nombre?.errors?.['required']) { El nombre es obligatorio }
+              @if(nombre?.errors?.['notOnlyWhiteSpace'] && !nombre?.errors?.['minlength']
+              && !nombre?.errors?.['required']) { El nombre no puede contener solo espacios en blanco }
+              @if(nombre?.errors?.['minlength']) { El nombre debe contener al menos 4 caracteres }
+              @if(nombre?.errors?.['maxlength']) { El nombre no puede contener más de 100 caracteres }
+            </div>
+          }
+        }
         <div class="mb-3">
           <label for="categoria" class="form-label pb-2">Categoría</label>
           <select id="categoria" class="form-select" formControlName="categoria_id">
@@ -132,22 +152,48 @@
           <label for="descripcion" class="form-label pb-2">Descripción</label>
           <input formControlName="descripcion" type="text" class="form-control" id="descripcion">
         </div>
+        @if(descripcion?.touched && descripcion?.invalid) {
+          <div class="text-danger">
+            @if(descripcion?.errors?.['required']) { La descripción es obligatoria }
+            @if(descripcion?.errors?.['notOnlyWhiteSpace'] && !descripcion?.errors?.['minlength']
+              && !descripcion?.errors?.['required']) { La descripcion no puede contener solo espacios en blanco }
+            @if(descripcion?.errors?.['minlength']) { La descripcion debe contener al menos 4 caracteres }
+            @if(descripcion?.errors?.['maxlength']) { La descripcion no puede contener más de 255 caracteres }
+          </div>
+        }
         <div class="mb-3">
           <label for="imagen_url" class="form-label pb-2">Imagen</label>
           <input type="file" class="form-control" id="imagen_url"
                  (change)="onFileSelected($event)"
                  accept=".jpg,.jpeg,.png">
         </div>
+        @if(imagen_url?.touched && imagen_url?.errors?.['invalidImageType']) {
+          <div class="text-danger">
+            Solo se permiten archivos .jpg, .jpeg o .png
+          </div>
+        }
         <div class="mb-3">
           <label for="precio" class="form-label pb-2">Precio</label>
           <input formControlName="precio" type="number" class="form-control" id="precio">
         </div>
+        @if(precio?.touched && precio?.invalid) {
+          <div class="text-danger">
+            @if(precio?.errors?.['required']) { El precio es obligatorio. }
+            @if(precio?.errors?.['min']) { El precio debe ser mayor que 0 }
+          </div>
+        }
         <div class="mb-3">
           <label for="stock" class="form-label pb-2">Stock</label>
           <input formControlName="stock" type="number" class="form-control" id="stock">
         </div>
+        @if(stock?.touched && stock?.invalid) {
+          <div class="text-danger">
+            @if(stock?.errors?.['required']) { El stock es obligatorio. }
+            @if(stock?.errors?.['min']) { El precio debe ser 0 o mayor }
+          </div>
+        }
         <div class="text-center">
-          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="submit" class="btn btn-success" [disabled]="formProduct.invalid">Guardar</button>
         </div>
       </form>
     </div>

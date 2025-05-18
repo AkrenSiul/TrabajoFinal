@@ -2,15 +2,13 @@ import {Component, inject, OnInit} from '@angular/core';
 import {ApiPanaderiaService} from '../../../services/apiPanaderia.service';
 import {AuthService} from '../../AuthService/AuthService';
 import {Router} from '@angular/router';
-import {DatePipe, NgForOf, NgIf} from '@angular/common';
+import {DatePipe} from '@angular/common';
 import {InterfacePedidoDetalles} from '../../../common/pedido-detalles';
 import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-pedidos-admin',
   imports: [
-    NgForOf,
-    NgIf,
     FormsModule,
     DatePipe
   ],

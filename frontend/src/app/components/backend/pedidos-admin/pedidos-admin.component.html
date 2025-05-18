@@ -1,11 +1,14 @@
 <div class="container">
   <h2>Gestión de Pedidos</h2>
 
-  <div *ngIf="pedidoDetalles.length === 0">
+  @if(pedidoDetalles.length === 0){
+  <div>
     <p>No hay pedidos disponibles.</p>
   </div>
+  }
 
-  <div *ngFor="let pedido of pedidoDetalles; let i = index" class="pedido-card">
+  @for(pedido of pedidoDetalles; track $index){
+  <div class="pedido-card">
     <h3>Pedido #{{ pedido.id }}</h3>
     <p><strong>Fecha:</strong> {{ pedido.fecha_pedido | date: 'yy/MM/dd' }}</p>
     <p><strong>Total:</strong> {{ pedido.total  }}</p>
@@ -13,7 +16,9 @@
     <div>
       <label for="estado">Estado:</label>
       <select [(ngModel)]="pedido.estado" (change)="actualizarEstado(pedido)" class="form-select">
-        <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+        @for(estado of estados; track $index){
+        <option [value]="estado">{{ estado }}</option>
+        }
       </select>
     </div>
 
@@ -30,13 +35,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let detalle of pedido.detalles">
+        @for(detalle of pedido.detalles; track $index){
+        <tr>
           <td>{{ detalle.producto }}</td>
           <td>{{ detalle.cantidad }}</td>
           <td>{{ detalle.precio_unidad }}</td>
         </tr>
+        }
         </tbody>
       </table>
     </div>
   </div>
+  }
 </div>
+

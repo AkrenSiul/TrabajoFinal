@@ -91,7 +91,7 @@ export class AddProductComponent implements OnInit{
       this.panaderiaService.createProduct(formData).subscribe({
         next: () => {
           alert('Producto creado con éxito');
-          this.router.navigate(['/inicio']);
+          // this.router.navigate(['/inicio']);
         },
         error: err => {
           console.error('Error al crear el producto:', err);
