@@ -4,6 +4,7 @@ import {NgIf} from '@angular/common';
 import {ApiPanaderiaService} from '../../../services/apiPanaderia.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../../AuthService/AuthService';
+import {FormValidators} from '../../../validators/formValidators';
 
 @Component({
   selector: 'app-add-product',
@@ -23,13 +24,34 @@ export class AddProductComponent implements OnInit{
   admin = false;
   private readonly router = inject(Router);
   formProducto: FormGroup = this.formBuilder.group({
-    nombre: ['', Validators.required],
-    descripcion: ['', Validators.required],
-    precio: [0, [Validators.required, Validators.min(0)]],
+    nombre: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+    descripcion: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(255), FormValidators.notOnlyWhiteSpace]],
+    precio: [0, [Validators.required, Validators.min(0.01)]],
     stock: [0, [Validators.required, Validators.min(0)]],
-    imagen_url: [null, Validators.required],
+    imagen_url: [null, [Validators.required, FormValidators.imgValidator]],
     categoria_id: [null, Validators.required],
   });
+
+  get nombre() {
+    return this.formProducto.get('nombre');
+  }
+  get descripcion() {
+    return this.formProducto.get('descripcion');
+  }
+  get precio() {
+    return this.formProducto.get('precio');
+  }
+  get stock() {
+    return this.formProducto.get('stock');
+  }
+  get imagen_url() {
+    return this.formProducto.get('imagen_url');
+  }
+  get categoria_id() {
+    return this.formProducto.get('categoria_id');
+  }
 
   vistaPrevia = {
     nombre: '',
@@ -39,6 +61,7 @@ export class AddProductComponent implements OnInit{
     imagenUrl: '',
     categoria: ''
   };
+
 
   ngOnInit() {
     this.authService.isAdmin$.subscribe(isAdmin => {
@@ -91,7 +114,7 @@ export class AddProductComponent implements OnInit{
       this.panaderiaService.createProduct(formData).subscribe({
         next: () => {
           alert('Producto creado con éxito');
-          // this.router.navigate(['/inicio']);
+          this.router.navigate(['/inicio']);
         },
         error: err => {
           console.error('Error al crear el producto:', err);

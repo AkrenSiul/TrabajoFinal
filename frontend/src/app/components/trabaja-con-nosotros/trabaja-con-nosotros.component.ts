@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, inject} from '@angular/core';
-import { ReactiveFormsModule, Validators, FormControl, FormGroup } from '@angular/forms';
+import {ReactiveFormsModule, Validators, FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {FormValidators} from '../../validators/formValidators';
@@ -13,14 +13,31 @@ import {FormValidators} from '../../validators/formValidators';
 })
 export class TrabajaConNosotrosComponent implements AfterViewInit {
   private readonly panaderiaService = inject(ApiPanaderiaService);
+  private formBuilder = inject(FormBuilder);
   private route = inject(ActivatedRoute);
 
-  formContact = new FormGroup({
-    nombre: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
-    email: new FormControl<string>('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
-    mensaje: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
-    cv: new FormControl<File | null>(null, {validators: [Validators.required, FormValidators.pdfFileValidator]})
+  formContact: FormGroup = this.formBuilder.group({
+    nombre: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+    email: ['', [Validators.required, Validators.email, Validators.minLength(4),
+      Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
+    mensaje: ['', [Validators.required, Validators.minLength(4),
+      Validators.maxLength(5000), FormValidators.notOnlyWhiteSpace]],
+    cv: [null, [Validators.required, FormValidators.pdfFileValidator]]
   });
+
+  get nombre() {
+    return this.formContact.get('nombre');
+  }
+  get email() {
+    return this.formContact.get('email');
+  }
+  get mensaje() {
+    return this.formContact.get('mensaje');
+  }
+  get cv() {
+    return this.formContact.get('cv');
+  }
 
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -34,7 +51,6 @@ export class TrabajaConNosotrosComponent implements AfterViewInit {
       cvControl.updateValueAndValidity();
     }
   }
-
 
   onSubmit() {
     if (this.formContact.valid) {

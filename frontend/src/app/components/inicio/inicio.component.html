@@ -189,7 +189,7 @@
         @if(stock?.touched && stock?.invalid) {
           <div class="text-danger">
             @if(stock?.errors?.['required']) { El stock es obligatorio. }
-            @if(stock?.errors?.['min']) { El precio debe ser 0 o mayor }
+            @if(stock?.errors?.['min']) { El stock debe ser 0 o mayor }
           </div>
         }
         <div class="text-center">

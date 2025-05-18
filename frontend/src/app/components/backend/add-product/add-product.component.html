@@ -6,21 +6,51 @@
           <label for="nombre" class="form-label">Nombre</label>
           <input id="nombre" type="text" formControlName="nombre" class="form-control" (input)="actualizarVistaPrevia()">
         </div>
+        @if(nombre?.touched && nombre?.invalid){
+          <div class="text-danger">
+            @if(nombre?.errors?.['required']) { El nombre es obligatorio }
+            @if(nombre?.errors?.['notOnlyWhiteSpace'] && !nombre?.errors?.['minlength']
+            && !nombre?.errors?.['required']) { El nombre no puede contener solo espacios en blanco }
+            @if(nombre?.errors?.['minlength']) { El nombre debe contener al menos 4 caracteres }
+            @if(nombre?.errors?.['maxlength']) { El nombre no puede contener más de 100 caracteres }
+          </div>
+        }
 
         <div class="mb-3">
           <label for="descripcion" class="form-label">Descripción</label>
           <input id="descripcion" type="text" formControlName="descripcion" class="form-control" (input)="actualizarVistaPrevia()">
         </div>
+        @if(descripcion?.touched && descripcion?.invalid) {
+          <div class="text-danger">
+            @if(descripcion?.errors?.['required']) { La descripción es obligatoria }
+            @if(descripcion?.errors?.['notOnlyWhiteSpace'] && !descripcion?.errors?.['minlength']
+            && !descripcion?.errors?.['required']) { La descripcion no puede contener solo espacios en blanco }
+            @if(descripcion?.errors?.['minlength']) { La descripcion debe contener al menos 4 caracteres }
+            @if(descripcion?.errors?.['maxlength']) { La descripcion no puede contener más de 255 caracteres }
+          </div>
+        }
 
         <div class="mb-3">
           <label for="precio" class="form-label">Precio</label>
           <input id="precio" type="number" formControlName="precio" class="form-control" (input)="actualizarVistaPrevia()">
         </div>
+        @if(precio?.touched && precio?.invalid) {
+          <div class="text-danger">
+            @if(precio?.errors?.['required']) { El precio es obligatorio. }
+            @if(precio?.errors?.['min']) { El precio debe ser mayor que 0 }
+          </div>
+        }
 
         <div class="mb-3">
           <label for="stock" class="form-label">Stock</label>
           <input id="stock" type="number" formControlName="stock" class="form-control" (input)="actualizarVistaPrevia()">
         </div>
+        @if(stock?.touched && stock?.invalid) {
+          <div class="text-danger">
+            @if(stock?.errors?.['required']) { El stock es obligatorio. }
+            @if(stock?.errors?.['min']) { El stock debe ser 0 o mayor }
+          </div>
+        }
 
         <div class="mb-3">
           <label for="imagen_url" class="form-label">Imagen</label>
@@ -37,6 +67,12 @@
             }
           </select>
         </div>
+        @if(categoria_id?.touched && categoria_id?.invalid) {
+          <div class="text-danger">
+            @if(categoria_id?.errors?.['required']) { La categoría es obligatoria }
+          </div>
+          <br>
+        }
 
         <button type="submit" class="btn btn-success w-100">Guardar producto</button>
       </form>

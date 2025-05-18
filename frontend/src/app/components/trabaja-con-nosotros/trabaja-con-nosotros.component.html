@@ -59,15 +59,44 @@
       <label for="nombre" class="form-label">Nombre</label>
       <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Tu nombre">
     </div>
+    @if(nombre?.touched && nombre?.invalid){
+      <div class="text-danger">
+        @if(nombre?.errors?.['required']) { El nombre es obligatorio }
+        @if(nombre?.errors?.['notOnlyWhiteSpace'] && !nombre?.errors?.['minlength']
+        && !nombre?.errors?.['required']) { El nombre no puede contener solo espacios en blanco }
+        @if(nombre?.errors?.['minlength']) { El nombre debe contener al menos 4 caracteres }
+        @if(nombre?.errors?.['maxlength']) { El nombre no puede contener más de 100 caracteres }
+      </div>
+    }
     <div class="mb-3">
       <label for="email" class="form-label">Correo electrónico</label>
       <input type="email" class="form-control" id="email" formControlName="email" placeholder="Tu correo">
     </div>
-
+    @if(email?.touched && email?.invalid){
+      <div class="text-danger">
+        @if(email?.errors?.['required']) { El correo electrónico es obligatorio }
+        @if(email?.errors?.['notOnlyWhiteSpace'] && !email?.errors?.['minlength']
+        && !email?.errors?.['required']) { El correo no puede contener solo espacios en blanco }
+        @if(email?.errors?.['email']) { El correo electrónico debe ser un correo electrónico válido }
+        @if(email?.errors?.['maxlength']) { El correo electrónico no puede contener más de 100 caracteres }
+      </div>
+    }
     <div class="mb-3">
       <label for="mensaje" class="form-label">Mensaje</label>
       <textarea class="form-control" id="mensaje" formControlName="mensaje" rows="4" placeholder="Tu mensaje"></textarea>
     </div>
+    @if (mensaje?.touched && mensaje?.invalid) {
+      <div class="text-danger">
+        @if (mensaje?.errors?.['required']) { El mensaje es obligatorio }
+        @if (mensaje?.errors?.['minlength']) { El mensaje debe tener al menos 4 caracteres }
+        @if (mensaje?.errors?.['maxlength']) { El mensaje no puede tener más de 5000 caracteres }
+        @if (mensaje?.errors?.['notOnlyWhiteSpace'] &&
+        !mensaje?.errors?.['required'] &&
+        !mensaje?.errors?.['minlength']) {
+          El mensaje no puede contener solo espacios en blanco
+        }
+      </div>
+    }
 
     <div class="mb-3">
       <label class="form-label" for="cv">Adjuntar CV:</label>
@@ -80,6 +109,12 @@
         required
       />
     </div>
+    @if (cv?.touched && cv?.invalid) {
+      <div class="text-danger">
+        @if (cv?.errors?.['required']) { El archivo es obligatorio }
+        @if (cv?.errors?.['invalidFileType']) { El archivo debe ser un PDF válido }
+      </div>
+    }
     <button type="submit" class="btn btn-primary" [disabled]="formContact.invalid">Enviar</button>
   </form>
     </div>

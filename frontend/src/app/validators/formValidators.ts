@@ -11,9 +11,18 @@ export class FormValidators {
 
   static pdfFileValidator(control: AbstractControl): ValidationErrors | null {
     const file = control.value as File | null;
-    if (!file) return null;
-    return file.type === 'application/pdf' ? null : {invalidFileType: true};
+
+    if (!file) {
+      return null;
+    }
+
+    const allowedTypes = [
+      'application/pdf'
+    ];
+
+    return allowedTypes.includes(file.type) ? null : { invalidFileType: true };
   }
+
   static imgValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
     if (!value || value.trim() === '') {
