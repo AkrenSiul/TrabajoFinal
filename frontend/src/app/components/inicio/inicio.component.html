@@ -29,25 +29,31 @@
 <section class="mt-4 mx-auto my-auto max-width">
   <br>
   <div class="row g-4">
-    <div class="col-3 d-flex justify-content-center">
-      <select class="form-select border border-2 border-dark-subtle w-50 h-50 fw-bold" [(ngModel)]="categoriaSeleccionada" (ngModelChange)="onCategoriaChange(categoriaSeleccionada)">
-        <option class="text-center fw-bold" [ngValue]="null">Ver todos</option>
-        @for(categoria of categorias; track categoria.id) {
-        <option class="text-center fw-bold" [ngValue]="categoria.id">
-         {{ categoria.nombre }}
-        </option>
-        }
-      </select>
+    <div class="row g-4 align-items-center justify-content-center">
+      <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
+        <select class="form-select border border-2 border-dark-subtle custom-select fw-bold w-50"
+                [(ngModel)]="categoriaSeleccionada"
+                (ngModelChange)="onCategoriaChange(categoriaSeleccionada)">
+          <option class="text-center fw-bold" [ngValue]="null">Ver todos</option>
+          @for(categoria of categorias; track categoria.id) {
+            <option class="text-center fw-bold" [ngValue]="categoria.id">
+              {{ categoria.nombre }}
+            </option>
+          }
+        </select>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-6 d-flex justify-content-center">
+        <form class="d-flex w-100" (submit)="getProductos()">
+          <input type="text"
+                 class="form-control me-2"
+                 (keydown.enter)="getProductos()"
+                 placeholder="Buscar productos..." />
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+      </div>
     </div>
-    <div class="col-6">
-      <form class="d-flex mb-3">
-        <div class="w-75">
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="search" (keydown.enter)="getProductos()">
-        </div>
-        <button type="submit" class="btn btn-primary mx-2">Submit</button>
-      </form>
-    </div>
-    <div class="col-3"></div>
+
     @if(productos.length === 0) {
     <div class="min-vh-50 d-flex justify-content-center align-items-center flex-column">
       <h4 class="text-center">No hay productos en esta categoría</h4>

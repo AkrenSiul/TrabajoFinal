@@ -54,3 +54,16 @@
   border: 1px solid grey;
   padding: 12px;
 }
+.custom-select {
+  width: 50%;
+  height: 50%;
+  font-weight: bold;
+  border: 2px solid var(--bs-border-color, #dee2e6);
+}
+
+@media (max-width: 768px) {
+  .custom-select {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+}
