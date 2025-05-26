@@ -109,7 +109,6 @@ export class UserListComponent implements OnInit {
     this.formUsers.get('contrasenya')?.setValidators([
       Validators.minLength(4),
       Validators.maxLength(255),
-      FormValidators.notOnlyWhiteSpace
     ]);
     this.formUsers.get('contrasenya')?.updateValueAndValidity();
 

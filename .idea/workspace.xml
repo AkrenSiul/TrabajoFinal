@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="021b70c9-c906-42e9-87b3-f4c3b571d53b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/app/Filters/CorsFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/app/Filters/CorsFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/AuthService/AuthService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/AuthService/AuthService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/contacto/contacto.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/trabaja-con-nosotros/trabaja-con-nosotros.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/backend/user-list/user-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/backend/user-list/user-list.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +169,7 @@
       <workItem from="1748018359938" duration="18000" />
       <workItem from="1748018501354" duration="3029000" />
       <workItem from="1748101097959" duration="254000" />
-      <workItem from="1748276261954" duration="5812000" />
+      <workItem from="1748276261954" duration="8513000" />
     </task>
     <servers />
   </component>
