@@ -17,8 +17,8 @@ export class ContactoComponent {
 
   formContact = this.formBuilder.group(
     {
-      nombre: ['', Validators.required,Validators.minLength(4),
-        Validators.maxLength(100), FormValidators.notOnlyWhiteSpace],
+      nombre: ['', [Validators.required,Validators.minLength(4),
+        Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
       email: ['', [Validators.required, Validators.email,Validators.minLength(4),
         Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
       telefono: ['', [Validators.required, Validators.minLength(9),

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {InterfaceProductos} from '../../common/productos';
 import {CartService} from '../../services/cart.service';
-import {Observable} from 'rxjs';
+import {Observable, take} from 'rxjs';
 import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
 import {AsyncPipe, CurrencyPipe} from '@angular/common';
 import {AuthService} from '../AuthService/AuthService';
@@ -57,7 +57,7 @@ export class CartComponent implements AfterViewInit {
   }
 
   confirmarPago() {
-    this.cartService.cart$.subscribe((productos) => {
+    this.cartService.cart$.pipe(take(1)).subscribe((productos) => {
       if (!productos || productos.length === 0) {
         return;
       }

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, inject} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {ReactiveFormsModule, Validators, FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {ApiPanaderiaService} from '../../services/apiPanaderia.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
@@ -12,6 +12,7 @@ import {FormValidators} from '../../validators/formValidators';
   styleUrl: './trabaja-con-nosotros.component.css'
 })
 export class TrabajaConNosotrosComponent implements AfterViewInit {
+  @ViewChild('cvInput') cvInput!: ElementRef<HTMLInputElement>;
   private readonly panaderiaService = inject(ApiPanaderiaService);
   private formBuilder = inject(FormBuilder);
   private route = inject(ActivatedRoute);
@@ -21,8 +22,8 @@ export class TrabajaConNosotrosComponent implements AfterViewInit {
       Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
     email: ['', [Validators.required, Validators.email, Validators.minLength(4),
       Validators.maxLength(100), FormValidators.notOnlyWhiteSpace]],
-    mensaje: ['', [Validators.required, Validators.minLength(4),
-      Validators.maxLength(5000), FormValidators.notOnlyWhiteSpace]],
+    mensaje: ['', [Validators.minLength(4),
+      Validators.maxLength(5000)]],
     cv: [null, [Validators.required, FormValidators.pdfFileValidator]]
   });
 
@@ -57,7 +58,7 @@ export class TrabajaConNosotrosComponent implements AfterViewInit {
       const formData = new FormData();
       formData.append('nombre', this.formContact.value.nombre!);
       formData.append('email', this.formContact.value.email!);
-      formData.append('mensaje', this.formContact.value.mensaje!);
+      formData.append('mensaje', this.formContact.value.mensaje! || '' );
       if (this.formContact.value.cv) {
         formData.append('cv_archivo', this.formContact.value.cv);
       }
@@ -69,6 +70,9 @@ export class TrabajaConNosotrosComponent implements AfterViewInit {
           complete: () => {
             alert('Solicitud empleo enviada');
             this.formContact.reset();
+            if (this.cvInput) {
+              this.cvInput.nativeElement.value = '';
+            }
           },
           error: err => {
             console.log(err);

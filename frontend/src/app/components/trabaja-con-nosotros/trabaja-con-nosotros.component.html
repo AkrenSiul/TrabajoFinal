@@ -87,7 +87,6 @@
     </div>
     @if (mensaje?.touched && mensaje?.invalid) {
       <div class="text-danger">
-        @if (mensaje?.errors?.['required']) { El mensaje es obligatorio }
         @if (mensaje?.errors?.['minlength']) { El mensaje debe tener al menos 4 caracteres }
         @if (mensaje?.errors?.['maxlength']) { El mensaje no puede tener más de 5000 caracteres }
         @if (mensaje?.errors?.['notOnlyWhiteSpace'] &&
@@ -102,6 +101,7 @@
       <label class="form-label" for="cv">Adjuntar CV:</label>
       <br>
       <input
+        #cvInput
         type="file"
         id="cv"
         (change)="onFileChange($event)"

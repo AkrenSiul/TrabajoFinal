@@ -25,7 +25,7 @@ class CorsFilter implements FilterInterface
         if (in_array($origin, $allowedOrigins)) {
             header('Access-Control-Allow-Origin: ' . $origin);
         } else {
-            header('Access-Control-Allow-Origin: *'); // O puedes bloquear
+            header('Access-Control-Allow-Origin: *');
         }
 
 
@@ -36,7 +36,6 @@ class CorsFilter implements FilterInterface
         header("Access-Control-Allow-Headers: Content-Type");
 
 
-        // Si es una petición OPTIONS (preflight), respondemos aquí
         if ($request->getMethod() === 'OPTIONS') {
             http_response_code(200);
             exit;
@@ -57,7 +56,7 @@ class CorsFilter implements FilterInterface
 
         header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
         header("Access-Control-Allow-Headers: Content-Type");
-        // header('Access-Control-Allow-Credentials: true'); // solo si lo necesitas
+        // header('Access-Control-Allow-Credentials: true');
 
         if ($request->getMethod() === 'OPTIONS') {
             return service('response')->setStatusCode(200);

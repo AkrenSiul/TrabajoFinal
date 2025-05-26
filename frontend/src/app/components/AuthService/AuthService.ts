@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import {CartService} from '../../services/cart.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private cartService = inject(CartService)
   private loginOnSubject = new BehaviorSubject<boolean>(this.getLoginFromStorage());
   private isAdminSubject = new BehaviorSubject<boolean>(this.getAdminFromStorage());
   private isSuperAdminSubject = new BehaviorSubject<boolean>(this.getAdminFromStorage());
@@ -38,6 +40,7 @@ export class AuthService {
     localStorage.removeItem('rol');
     localStorage.removeItem('email');
     localStorage.removeItem('id');
+    this.cartService.clearCart();
 
     this.loginOnSubject.next(false);
     this.isAdminSubject.next(false);
